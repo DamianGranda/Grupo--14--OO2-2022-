@@ -2,6 +2,7 @@ package sistema.integrador.oo2.model;
 
 public abstract class Aula {
 	
+	
 	protected int id;
 	protected int numero;
 	protected Edificio edificio;
