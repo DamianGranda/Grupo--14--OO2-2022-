@@ -1,14 +1,37 @@
 package sistema.integrador.oo2.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Edificio {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="Edificio")
+public class Edificio implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="edificio", nullable=true,length=30)
 	private String edificio;
+	
+	@OneToMany(mappedBy = "edificio")
 	private Set<Aula> aula;
 	
 	public Edificio() {}
+	
 	public Edificio(int id, String edificio, Set<Aula> aula) {
 		super();
 		this.id = id;

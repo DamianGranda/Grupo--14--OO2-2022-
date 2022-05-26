@@ -1,16 +1,45 @@
 package sistema.integrador.oo2.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Espacio {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Espacio")
+
+public class Espacio implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="fecha",nullable=false)
 	private LocalDate fecha;
+	
+	@Column(name="turno",nullable=false)
 	private char turno;
+	
+	@ManyToOne
+	@JoinColumn(name="idAula", nullable=false)
 	private Aula aula;
+	
+	@Column(name="libre",nullable=true)
 	private boolean libre;
 	
 	public Espacio() {}
+	
 	public Espacio(LocalDate fecha, char turno, Aula aula, boolean libre) {
 		super();
 		this.fecha = fecha;
