@@ -1,12 +1,25 @@
 package sistema.integrador.oo2.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Curso extends NotaPedido {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Curso")
+public class Curso extends NotaPedido implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
+	@Column(name="codCurso", nullable=true, length=45)
 	private String codCurso;
 	
 	public Curso() {}
+	
 	public Curso(LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
 			String codCurso) {
 		super(fecha, turno, aula, cantEstudiantes, materia, observaciones);
