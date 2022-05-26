@@ -1,9 +1,24 @@
 package sistema.integrador.oo2.model;
 
-public class Tradicional extends Aula {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Tradicional")
+public class Tradicional extends Aula implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Column(name="cantBancos", nullable=false)
 	private int cantBancos;
+	@Column(name="pizarron", nullable=false)
 	private String pizarron;
+	@Column(name="tieneProyector", nullable=false)
 	private boolean tieneProyector;
 	
 	public Tradicional() {}
