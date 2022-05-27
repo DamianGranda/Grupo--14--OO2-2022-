@@ -1,6 +1,8 @@
 package sistema.integrador.oo2.model;
 
 import java.io.Serializable;
+
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -8,18 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="NotaPedido")
-@Inheritance(
-	    strategy = InheritanceType.JOINED
-	)
-public class NotaPedido implements Serializable{
+public abstract class NotaPedido implements Serializable{
 	
 	/**
 	 * 
@@ -51,6 +48,7 @@ public class NotaPedido implements Serializable{
 	protected String observaciones;
 	
 	public NotaPedido() {}
+	
 	public NotaPedido(LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia,
 			String observaciones) {
 		super();

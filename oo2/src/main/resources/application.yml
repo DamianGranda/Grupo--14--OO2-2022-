@@ -1,0 +1,30 @@
+loggin:
+    config: #TODO
+    exception-conversion-word: #TODO
+    file: #TODO
+    path: #TODO
+    pattern:
+        console: #TODO
+        file: #TODO
+        level: #TODO
+        
+spring:
+    datasource:
+        url: jdbc:mysql://localhost/bd-Sistema-Integrador
+        username: root
+        password: root
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+            naming:
+                strategy: org.hibernate.cfg.ImprovedNaming.Strategy
+        properties:
+            dialect: org.hibernate.dialect.MySQL5Dialect            
+    mvc: 
+      contentnegotiation:
+        favor-parameter: true
+        media-types:
+          pdf: application/pdf
+      
+        
