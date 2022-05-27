@@ -1,11 +1,11 @@
 package sistema.integrador.oo2.model;
 
-<<<<<<< HEAD
 
 
 
-public abstract class Aula {
-=======
+
+
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Aula")
 public abstract class Aula implements Serializable {
->>>>>>> 711397f0c36879d748dc7e57171c3079c8c49175
+
 	
 	/**
 	 * 
