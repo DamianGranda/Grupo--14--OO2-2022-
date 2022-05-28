@@ -6,6 +6,7 @@ package sistema.integrador.oo2.model;
 
 
 
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Aula")
+@Table(name="aula")
 public abstract class Aula implements Serializable {
 
 	
@@ -35,7 +36,7 @@ public abstract class Aula implements Serializable {
 	protected int numero;
 	
 	@ManyToOne
-	@JoinColumn(name="idEdificio", nullable=false)
+	@JoinColumn(name="id_edificio", nullable=false)
 	protected Edificio edificio;
 	
 	public Aula() {}

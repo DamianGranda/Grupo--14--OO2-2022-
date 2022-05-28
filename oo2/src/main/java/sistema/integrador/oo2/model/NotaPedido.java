@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="NotaPedido")
+
+@Table(name="nota_pedido")
 public abstract class NotaPedido implements Serializable{
 	
 	/**
@@ -37,11 +37,11 @@ public abstract class NotaPedido implements Serializable{
 	@JoinColumn(name="idAula", nullable=false)
 	protected Aula aula;
 	
-	@Column(name="cantEstudiantes", nullable=false)
+	@Column(name="cant_estudiantes", nullable=false)
 	protected int cantEstudiantes;
 	
 	@ManyToOne
-	@JoinColumn(name="idMateria", nullable=false)
+	@JoinColumn(name="id_materia", nullable=false)
 	protected Materia materia;
 	
 	@Column(name="observaciones", nullable=false)
@@ -118,3 +118,4 @@ public abstract class NotaPedido implements Serializable{
 	
 	
 }
+

@@ -7,15 +7,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name="Curso")
+@Table(name="curso")
 public class Curso extends NotaPedido implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="codCurso", nullable=true, length=45)
+	@Column(name="cod_curso", nullable=true, length=45)
 	private String codCurso;
 	
 	public Curso() {}

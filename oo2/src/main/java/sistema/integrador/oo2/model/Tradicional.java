@@ -6,19 +6,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name="Tradicional")
+@Table(name="tradicional")
 public class Tradicional extends Aula implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column(name="cantBancos", nullable=false)
+	@Column(name="cant_bancos", nullable=false)
 	private int cantBancos;
 	@Column(name="pizarron", nullable=false)
 	private String pizarron;
-	@Column(name="tieneProyector", nullable=false)
+	@Column(name="tiene_proyector", nullable=false)
 	private boolean tieneProyector;
 	
 	public Tradicional() {}
@@ -56,3 +58,4 @@ public class Tradicional extends Aula implements Serializable{
 	
 	
 }
+

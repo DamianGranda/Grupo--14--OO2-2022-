@@ -12,8 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name="Espacio")
+@Table(name="espacio")
 
 public class Espacio implements Serializable {
 	/**
@@ -32,7 +34,7 @@ public class Espacio implements Serializable {
 	private char turno;
 	
 	@ManyToOne
-	@JoinColumn(name="idAula", nullable=false)
+	@JoinColumn(name="id_aula", nullable=false)
 	private Aula aula;
 	
 	@Column(name="libre",nullable=true)

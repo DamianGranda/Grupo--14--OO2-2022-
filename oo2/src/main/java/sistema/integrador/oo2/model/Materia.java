@@ -11,8 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name="Materia")
+@Table(name="materia")
 public class Materia implements Serializable{
 	
 	/**
@@ -24,13 +26,13 @@ public class Materia implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "codMateria", nullable = false)
+	@Column(name = "cod_materia", nullable = false)
 	private int codMateria;
 	@Column(name = "materia", nullable = false)
 	private String materia;
 	
 	@ManyToOne
-	@JoinColumn(name="idCarrera", nullable=false)
+	@JoinColumn(name="id_carrera", nullable=false)
 	private Carrera carrera;
 	
 	public Materia() {}

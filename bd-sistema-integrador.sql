@@ -12,14 +12,14 @@ USE `bd-Sistema-Integrador`;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-DROP TABLE IF EXISTS `Departamento`;
+DROP TABLE IF EXISTS `departamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `Departamento` (
-  `idDepartamento` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `departamento` (
+  `id_departamento` int(11) NOT NULL AUTO_INCREMENT,
   `departamento` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idDepartamento`)
+  PRIMARY KEY (`id_departamento`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -28,152 +28,154 @@ DROP TABLE IF EXISTS `Carrera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `Carrera` (
-  `idCarrera` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `carrera` (
+  `id_carrera` int(11) NOT NULL AUTO_INCREMENT,
   `carrera` varchar(45) NOT NULL,
-  `idDepartamento` int(11) NOT NULL,
+  `id_departamento` int(11) NOT NULL,
 
-  PRIMARY KEY (`idCarrera`),
-  KEY `FKpnxin11usxve7lp2hv28ycyjh` (`idDepartamento`),
+  PRIMARY KEY (`id_carrera`),
+  KEY `FKpnxin11usxve7lp2hv28ycyjh` (`id_departamento`),
 
-  CONSTRAINT `FKpnxin11usxve7lp2hv28ycyjh` FOREIGN KEY (`idDepartamento`) REFERENCES `Departamento` (`idDepartamento`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKpnxin11usxve7lp2hv28ycyjh` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Materia`;
+DROP TABLE IF EXISTS `materia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `Materia` (
-  `idMateria` int(11) NOT NULL AUTO_INCREMENT,
-  `codMateria` int(11) NOT NULL,
-  `Materia` varchar(45) NOT NULL,
-  `idCarrera` int(11) NOT NULL,
+CREATE TABLE `materia` (
+  `id_materia` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_materia` int(11) NOT NULL,
+  `materia` varchar(45) NOT NULL,
+  `id_carrera` int(11) NOT NULL,
 
-  PRIMARY KEY (`idMateria`),
-  KEY `FKpw211cqmud0bc08lpqu90acw8` (`idCarrera`),
+  PRIMARY KEY (`id_materia`),
+  KEY `FKpw211cqmud0bc08lpqu90acw8` (`id_carrera`),
 
-  CONSTRAINT `FKpw211cqmud0bc08lpqu90acw8` FOREIGN KEY (`idCarrera`) REFERENCES `Carrera` (`idCarrera`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKpw211cqmud0bc08lpqu90acw8` FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`id_carrera`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Edificio`;
+DROP TABLE IF EXISTS `edificio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `Edificio` (
-  `idEdificio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `edificio` (
+  `id_edificio` int(11) NOT NULL AUTO_INCREMENT,
   `edificio` varchar(30) DEFAULT NULL,
 
-  PRIMARY KEY (`idEdificio`)
+  PRIMARY KEY (`id_edificio`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Aula`;
+DROP TABLE IF EXISTS `aula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Aula` (
-  `idAula` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `aula` (
+  `id_aula` int(11) NOT NULL AUTO_INCREMENT,
   `numero` int(11) NOT NULL,
-  `idEdificio` int(11) NOT NULL,
-  PRIMARY KEY (`idAula`),
+  `id_edificio` int(11) NOT NULL,
+  PRIMARY KEY (`id_aula`),
 
-   KEY `FKgvg5a2mgjvya8xwgio1s35956` (`idEdificio`),
-   CONSTRAINT `FKgvg5a2mgjvya8xwgio1s35956` FOREIGN KEY (`idEdificio`) REFERENCES `Edificio` (`idEdificio`) ON DELETE NO ACTION ON UPDATE NO ACTION
+   KEY `FKgvg5a2mgjvya8xwgio1s35956` (`id_edificio`),
+   CONSTRAINT `FKgvg5a2mgjvya8xwgio1s35956` FOREIGN KEY (`id_edificio`) REFERENCES `edificio` (`id_edificio`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `NotaPedido`;
+DROP TABLE IF EXISTS `nota_pedido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `NotaPedido` (
-  `idNotaPedido` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `nota_pedido` (
+  `id_nota_pedido` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `turno` char NOT NULL,
-  `idAula` int(11) NOT NULL,
-  `cantEstudiantes` int(11) NOT NULL,
-  `idMateria` int(11) NOT NULL,
+  `id_aula` int(11) NOT NULL,
+  `cant_estudiantes` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL,
   `observaciones` varchar(45) NOT NULL,
 
-  PRIMARY KEY (`idNotaPedido`),
+  PRIMARY KEY (`id_nota_pedido`),
 
-   KEY `fk_NotaPedido_1_idx` (`idAula`),
-   KEY `fk_NotaPedido_2_idx` (`idMateria`),
-   CONSTRAINT `fk_NotaPedido_1` FOREIGN KEY (`idAula`) REFERENCES `Aula` (`idAula`),
-   CONSTRAINT `fk_NotaPedido_2` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE NO ACTION ON UPDATE NO ACTION
+   KEY `fk_NotaPedido_1_idx` (`id_aula`),
+   KEY `fk_NotaPedido_2_idx` (`id_materia`),
+   CONSTRAINT `fk_NotaPedido_1` FOREIGN KEY (`id_aula`) REFERENCES `aula` (`id_aula`),
+   CONSTRAINT `fk_NotaPedido_2` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Final`;
+DROP TABLE IF EXISTS `final`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Final` (
-  `idFinal` int(11) NOT NULL,
-  `fechaExamen` date DEFAULT NULL,
+CREATE TABLE `final` (
+  `id_final` int(11) NOT NULL,
+  `fecha_examen` date DEFAULT NULL,
 
-  PRIMARY KEY (`idFinal`),
-  CONSTRAINT `FKjpk7mpfd2svjfpvgaj4x70s9r` FOREIGN KEY (`idFinal`) REFERENCES `NotaPedido` (`idNotaPedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id_final`),
+  CONSTRAINT `FKjpk7mpfd2svjfpvgaj4x70s9r` FOREIGN KEY (`id_final`) REFERENCES `nota_pedido` (`id_nota_pedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Curso`;
+DROP TABLE IF EXISTS `curso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Curso` (
-  `idCurso` int(11) NOT NULL,
-  `codCurso` varchar(45) DEFAULT NULL,
+CREATE TABLE `curso` (
+  `id_curso` int(11) NOT NULL,
+  `cod_curso` varchar(45) DEFAULT NULL,
 
-  PRIMARY KEY (`idCurso`),
+  PRIMARY KEY (`id_curso`),
   
 
-  CONSTRAINT `FKoan8fak6ifarcx3j6glfuf5m5` FOREIGN KEY (`idCurso`) REFERENCES `NotaPedido` (`idNotaPedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKoan8fak6ifarcx3j6glfuf5m5` FOREIGN KEY (`id_curso`) REFERENCES `nota_pedido` (`id_nota_pedido`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Laboratorio`;
+DROP TABLE IF EXISTS `laboratorio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Laboratorio` (
-  `idLaboratorio` int(11) NOT NULL,
-  `cantPC` int(11) DEFAULT NULL,
-  `cantSillas` int(11) DEFAULT NULL,
+CREATE TABLE `laboratorio` (
+  `id_laboratorio` int(11) NOT NULL,
+  `cant_pc` int(11) DEFAULT NULL,
+  `cant_sillas` int(11) DEFAULT NULL,
 
-  PRIMARY KEY (`idLaboratorio`),
+  PRIMARY KEY (`id_laboratorio`),
 
-  CONSTRAINT `fk_Aula_2` FOREIGN KEY (`idLaboratorio`) REFERENCES `Aula` (`idAula`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Aula_2` FOREIGN KEY (`id_laboratorio`) REFERENCES `aula` (`id_aula`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Tradicional`;
+DROP TABLE IF EXISTS `tradicional`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Tradicional` (
-  `idTradicional` int(11) NOT NULL,
-  `cantBancos` int(11) DEFAULT NULL,
+CREATE TABLE `tradicional` (
+  `id_tradicional` int(11) NOT NULL,
+  `cant_bancos` int(11) DEFAULT NULL,
   `pizarron` varchar(45) DEFAULT NULL,
-   `tieneProyector` tinyint(4) DEFAULT NULL,
+   `tiene_proyector` tinyint(4) DEFAULT NULL,
 
-  PRIMARY KEY (`idTradicional`),
+  PRIMARY KEY (`id_tradicional`),
 
-  CONSTRAINT `fk_Aula_3` FOREIGN KEY (`idTradicional`) REFERENCES `Aula` (`idAula`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Aula_3` FOREIGN KEY (`id_tradicional`) REFERENCES `aula` (`id_aula`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `Espacio`;
+DROP TABLE IF EXISTS `espacio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `Espacio` (
-  `idEspacio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `espacio` (
+  `id_espacio` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `turno` char NOT NULL,
-  `idAula` int(11) NOT NULL,
+  `id_aula` int(11) NOT NULL,
   `libre` tinyint(4) DEFAULT NULL,
 
-  PRIMARY KEY (`idEspacio`),
-  KEY `FKeubgg3n2nn6959ix7e8t5pda0` (`idAula`),
+  PRIMARY KEY (`id_espacio`),
+  KEY `FKeubgg3n2nn6959ix7e8t5pda0` (`id_aula`),
 
-  CONSTRAINT `FKeubgg3n2nn6959ix7e8t5pda0` FOREIGN KEY (`idAula`) REFERENCES `Aula` (`idAula`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FKeubgg3n2nn6959ix7e8t5pda0` FOREIGN KEY (`id_aula`) REFERENCES `aula` (`id_aula`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+

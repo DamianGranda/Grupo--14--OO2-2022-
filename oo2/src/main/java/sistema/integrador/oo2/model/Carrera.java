@@ -11,8 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="Carrera")
+@Table(name="carrera")
 public class Carrera implements Serializable{
 	
 	/**
@@ -28,7 +29,7 @@ public class Carrera implements Serializable{
 	private String carrera;
 	
 	@ManyToOne()
-	@JoinColumn(name="idDepartamento", nullable=false)
+	@JoinColumn(name="id_departamento", nullable=false)
 	private Departamento departamento;
 	
 	public Carrera() {}

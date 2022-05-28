@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Final")
+@Table(name="final")
 public class Final extends NotaPedido implements Serializable{
 	
 	/**
@@ -17,7 +17,7 @@ public class Final extends NotaPedido implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="fechaExamen", nullable=false)
+	@Column(name="fecha_examen", nullable=false)
 	private LocalDate fechaExamen;
 	
 	public Final() {}
