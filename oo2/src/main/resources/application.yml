@@ -20,7 +20,7 @@ spring:
             naming:
                 strategy: org.hibernate.cfg.ImprovedNaming.Strategy
         properties:
-            dialect: org.hibernate.dialect.MySQL5Dialect            
+            dialect: org.hibernate.dialect.MySQL8Dialect            
     mvc: 
       contentnegotiation:
         favor-parameter: true
