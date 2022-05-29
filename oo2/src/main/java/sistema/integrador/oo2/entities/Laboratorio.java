@@ -1,12 +1,9 @@
-package sistema.integrador.oo2.model;
+package sistema.integrador.oo2.entities;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 
@@ -20,6 +17,7 @@ public class Laboratorio extends Aula implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
 	@Column(name = "cant_pc", nullable = false)
 	private int cantPc;
 	@Column(name = "cant_sillas", nullable = false)

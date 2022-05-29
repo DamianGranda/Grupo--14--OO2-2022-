@@ -1,30 +1,19 @@
-package sistema.integrador.oo2.model;
-
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+package sistema.integrador.oo2.models;
 
 
 
-@Entity
-@Table(name="tradicional")
-public class Tradicional extends Aula implements Serializable{
+import sistema.integrador.oo2.entities.Edificio;
+
+public class TradicionalModel extends AulaModel {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Column(name="cant_bancos", nullable=false)
+	
 	private int cantBancos;
-	@Column(name="pizarron", nullable=false)
 	private String pizarron;
-	@Column(name="tiene_proyector", nullable=false)
 	private boolean tieneProyector;
 	
-	public Tradicional() {}
-	public Tradicional(int numero, Edificio edificio, int cantBancos, String pizarron, boolean tieneProyector) {
+	public TradicionalModel() {}
+	
+	public TradicionalModel(int numero, Edificio edificio, int cantBancos, String pizarron, boolean tieneProyector) {
 		super(numero, edificio);
 		this.cantBancos = cantBancos;
 		this.pizarron = pizarron;
@@ -54,8 +43,12 @@ public class Tradicional extends Aula implements Serializable{
 	public void setTieneProyector(boolean tieneProyector) {
 		this.tieneProyector = tieneProyector;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "TradicionalModel [cantBancos=" + cantBancos + ", pizarron=" + pizarron + ", tieneProyector="
+				+ tieneProyector + "]";
+	}
 	
 	
 }
-

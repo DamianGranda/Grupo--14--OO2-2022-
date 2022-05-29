@@ -1,21 +1,29 @@
-package sistema.integrador.oo2.model;
+package sistema.integrador.oo2.entities;
 
 import java.io.Serializable;
+
 
 
 import java.time.LocalDate;
 
 import javax.persistence.Column;
-
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
+
+@Entity
 @Table(name="nota_pedido")
+@Inheritance(
+	    strategy = InheritanceType.JOINED
+	)
 public abstract class NotaPedido implements Serializable{
 	
 	/**

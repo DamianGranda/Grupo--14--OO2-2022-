@@ -16,11 +16,11 @@ spring:
     jpa:
         show-sql: true
         hibernate:
-            ddl-auto: update
+            ddl-auto:  update
             naming:
                 strategy: org.hibernate.cfg.ImprovedNaming.Strategy
         properties:
-            dialect: org.hibernate.dialect.MySQL8Dialect            
+            dialect: org.hibernate.dialect.MySQL5Dialect            
     mvc: 
       contentnegotiation:
         favor-parameter: true

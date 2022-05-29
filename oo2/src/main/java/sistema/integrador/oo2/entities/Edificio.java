@@ -1,4 +1,4 @@
-package sistema.integrador.oo2.model;
+package sistema.integrador.oo2.entities;
 
 import java.io.Serializable;
 
