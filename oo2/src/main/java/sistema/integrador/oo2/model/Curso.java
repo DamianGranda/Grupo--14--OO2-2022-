@@ -5,7 +5,10 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
 
 
@@ -16,6 +19,10 @@ public class Curso extends NotaPedido implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected int id;
 	
 	@Column(name="cod_curso", nullable=true, length=45)
 	private String codCurso;
