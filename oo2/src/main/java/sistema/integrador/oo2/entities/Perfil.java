@@ -77,6 +77,13 @@ public class Perfil implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 	
 }
