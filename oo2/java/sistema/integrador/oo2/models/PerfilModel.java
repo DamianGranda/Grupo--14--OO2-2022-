@@ -2,7 +2,7 @@ package sistema.integrador.oo2.models;
 
 public class PerfilModel {
 	
-	private int idPefil;
+	private int idPerfil;
 	private String descripcion;
 	private String tipoPerfil;
 	
@@ -10,19 +10,19 @@ public class PerfilModel {
 		super();
 	}
 
-	public PerfilModel(int idPefil, String descripcion, String tipoPerfil) {
+	public PerfilModel(int idPerfil, String descripcion, String tipoPerfil) {
 		super();
-		this.idPefil = idPefil;
+		this.idPerfil = idPerfil;
 		this.descripcion = descripcion;
 		this.tipoPerfil = tipoPerfil;
 	}
 
 	public int getIdPefil() {
-		return idPefil;
+		return idPerfil;
 	}
 
 	public void setIdPefil(int idPefil) {
-		this.idPefil = idPefil;
+		this.idPerfil = idPefil;
 	}
 
 	public String getDescripcion() {
@@ -43,7 +43,7 @@ public class PerfilModel {
 
 	@Override
 	public String toString() {
-		return "PerfilModel [idPefil=" + idPefil + ", descripcion=" + descripcion + ", tipoPerfil=" + tipoPerfil + "]";
+		return "PerfilModel [idPefil=" + idPerfil + ", descripcion=" + descripcion + ", tipoPerfil=" + tipoPerfil + "]";
 	}
 	
 	
