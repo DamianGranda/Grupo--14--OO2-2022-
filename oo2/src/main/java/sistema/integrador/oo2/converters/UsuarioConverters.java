@@ -1,21 +1,21 @@
 package sistema.integrador.oo2.converters;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component; 
 
 import sistema.integrador.oo2.entities.Usuario;
-import sistema.integrador.oo2.models.*;
+import sistema.integrador.oo2.models.UsuarioModel;
 
 @Component("usuarioConverter")
-public class UsuarioConverter {
+public class UsuarioConverters {
 	
 	public Usuario modeloAEntidad(UsuarioModel usuarioModel) {
-		return new Usuario(usuarioModel.getIdUsuario(),usuarioModel.getTipoDoc(),usuarioModel.getDocumento(),
-				usuarioModel.getNombre(),usuarioModel.getApellido(),usuarioModel.getEmail(),usuarioModel.getNombreDeUsuario(),
+		return new Usuario(usuarioModel.getIdUsuario(),usuarioModel.getNombre(),usuarioModel.getApellido(),usuarioModel.getTipoDoc(),
+				usuarioModel.getDocumento(),usuarioModel.getEmail(),usuarioModel.getNombreDeUsuario(),
 				usuarioModel.getContraseña(),usuarioModel.getPerfil());
 	}
 	
 	public UsuarioModel entidadAModelo(Usuario usuario) {
-		return new UsuarioModel(usuario.getIdUsuario(), usuario.getTipoDoc(),usuario.getDocumento(), usuario.getNombre(),
-				usuario.getApellido(), usuario.getEmail(), usuario.getNombreUsuario(), usuario.getClave(),usuario.getPerfil());
+		return new UsuarioModel(usuario.getIdUsuario(), usuario.getNombre(),usuario.getApellido(), usuario.getTipoDoc(),usuario.getDocumento(),
+				 usuario.getEmail(), usuario.getNombreDeUsuario(), usuario.getContraseña(),usuario.getPerfil());
 	}
 }
