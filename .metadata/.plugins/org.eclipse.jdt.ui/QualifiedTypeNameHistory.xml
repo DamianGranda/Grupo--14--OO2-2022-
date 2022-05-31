@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.services.IUsuarioService"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.repositories.IUsuarioRepository"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.converters.UsuarioConverters"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.entities.User"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.services.UserDetailsServiceImp"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;UsuarioService.java&apos; to &apos;oo2/src/main/java/sistema.integrador.oo2.services&apos;&#x0D;&#x0A;- Original project: &apos;grupoDos&apos;&#x0D;&#x0A;- Destination element: &apos;oo2/src/main/java/sistema.integrador.oo2.services&apos;&#x0D;&#x0A;- Original element: &apos;com.unla.grupoDos.services.implementation.UsuarioService.java&apos;" description="Copy compilation unit" destination="=oo2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;sistema.integrador.oo2.services" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.unla.grupoDos.services.implementation{UsuarioService.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1654009906036" units="1" version="1.0"/>
+</session>

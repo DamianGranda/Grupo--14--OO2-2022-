@@ -1,0 +1,5 @@
+package sistema.integrador.oo2.implementation;
+
+public class UsuarioService {
+
+}

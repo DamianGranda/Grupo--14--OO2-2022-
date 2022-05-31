@@ -1,0 +1,86 @@
+package sistema.integrador.oo2.implementation;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+
+
+import sistema.integrador.oo2.*;
+import sistema.integrador.oo2.entities.Usuario;
+import sistema.integrador.oo2.models.UsuarioModel;
+import sistema.integrador.oo2.repositories.IUsuarioRepository;
+import sistema.integrador.oo2.services.IUsuarioService;
+import sistema.integrador.oo2.converters.UsuarioConverters;
+
+@Service("usuarioService")
+public class UsuarioService implements IUsuarioService, UserDetailsService{
+	@Autowired
+	private PasswordEncoder encoder;
+	@Autowired
+	@Qualifier("usuarioRepository")
+	private IUsuarioRepository usuarioRepository;
+	
+	
+	
+	@Autowired
+	@Qualifier("usuarioConverter")
+	private UsuarioConverters usuarioConverter;
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UsuarioModel insertOrUpdate(UsuarioModel usuarioModel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean remove(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public UsuarioModel findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UsuarioModel findByNombreUsuario(String nombreUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> findByIdPerfil(int idPerfil) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}
