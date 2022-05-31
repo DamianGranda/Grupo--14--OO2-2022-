@@ -1,4 +1,6 @@
 package sistema.integrador.oo2.entities;
+import java.time.LocalDateTime; 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,31 +8,58 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import sistema.integrador.oo2.entities.Admin;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
+@Table(name="user")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column
+	@Column(name="username", unique=true, nullable=false, length=45)
 	private String username;
 
-	@Column
+	@Column(name="password", nullable=false, length=60)
 	private String password;
 
-	@Column
+	@Column(name="enabled")
 	private boolean enabled;
+	
+	@Column(name="createdat")
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+	
+	@Column(name="updatedat")
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+	private Set<UserRole> userRoles = new HashSet<UserRole>();
+	
+	
+	
+	public User() {
+		super();
+	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "authorities_users", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
-	private Set<Admin> admin;
+	public User(String username, String password, boolean enabled) {
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+	}
+	
+	public User(String username, String password, boolean enabled, Set<UserRole> userRoles) {
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.userRoles = userRoles;
+	}
 
 	public Long getId() {
 		return id;
@@ -64,41 +93,20 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public Set<Admin> getAdmin() {
-		return admin;
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
 	}
 
-	public void setAuthority(Set<Admin> admin) {
-		this.admin = admin;
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
-	}
+	
 }

@@ -8,8 +8,9 @@ public class ViewRouteHelper {
 	
 	public final static String AUDITOR_ROOT = "/auditor/";
 	
-	public final static String USUARIO_LOGIN = "usuario/login";
-	public final static String USUARIO_LOGOUT = "usuario/logout";
+	//USER-----
+	public final static String USER_LOGIN = "user/login";
+	public final static String USER_LOGOUT = "user/logout";
 	
 	public final static String ADMINISTRADOR_ROOT = "/admin/";
 }
