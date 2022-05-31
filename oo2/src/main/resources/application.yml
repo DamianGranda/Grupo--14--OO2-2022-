@@ -27,4 +27,6 @@ spring:
         media-types:
           pdf: application/pdf
       
-        
+    
+    main:
+      allow-circular-references: true    

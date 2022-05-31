@@ -3,7 +3,7 @@ package sistema.integrador.oo2.converters;
 import sistema.integrador.oo2.entities.Perfil;
 import sistema.integrador.oo2.models.PerfilModel;
 
-public class PerfilConverterts {
+public class PerfilConverters {
 
 	public Perfil modeloAEntidad(PerfilModel perfilModel) {
 		return new Perfil(perfilModel.getIdPefil(),perfilModel.getTipoPerfil(),perfilModel.getDescripcion());
