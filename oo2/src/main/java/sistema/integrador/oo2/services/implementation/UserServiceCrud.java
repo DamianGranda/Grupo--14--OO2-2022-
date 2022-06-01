@@ -20,15 +20,18 @@ public class UserServiceCrud implements IUserService {
 	}
 
 	@Override
-	public Optional<User> listarId(int Long) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<User> listarId(Long id) {
+		return data.findById(id);
 	}
 
 	@Override
-	public Long save(User u) {
-		// TODO Auto-generated method stub
-		return null;
+	public int save(User u) {
+		int res=0;
+		User user=data.save(u);
+		if(!user.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override

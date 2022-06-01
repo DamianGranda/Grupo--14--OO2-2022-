@@ -8,6 +8,8 @@
 </head>
 <body>
 	<div class="Container mt-4">
+	<a th:href="@{/new}"class="btn btn-primary">NUEVO</a>
+		<br> <br>
 		<table class="table">
 			<thead>
 				<tr>
@@ -20,7 +22,7 @@
 					<td th:text="${user.id}"></td>
 					<td th:text="${user.username}"></td>
 					<td>
-					<a class="btn btn-warning">Editar</a>
+					<a th:href="@{/editar/}+${user.id}"class="btn btn-warning">Editar</a>
 					<a class="btn btn-danger">Elimnar</a>
 					</td>
 				</tr>
