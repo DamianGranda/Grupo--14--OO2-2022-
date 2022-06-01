@@ -215,3 +215,6 @@ CREATE TABLE `usuario` (
   KEY `FK131gkl0dt1966rsw6dmesnsxw` (`id_perfil`),
   CONSTRAINT `FK131gkl0dt1966rsw6dmesnsxw` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into user values(3,1,'$2a$10$F7sv9PxxcyMjBpkHmjkvtOj1jSm3D4.sSc/jL4bEH69b1IjxZ83yu',now(),'user',now());
+insert into user_role values(3,now(),'ROLE_USER',now(),3);
