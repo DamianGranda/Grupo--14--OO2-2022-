@@ -6,4 +6,6 @@
     <fullyQualifiedTypeName name="sistema.integrador.oo2.entities.User"/>
     <fullyQualifiedTypeName name="sistema.integrador.oo2.services.UserDetailsServiceImp"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
 </qualifiedTypeNameHistroy>
