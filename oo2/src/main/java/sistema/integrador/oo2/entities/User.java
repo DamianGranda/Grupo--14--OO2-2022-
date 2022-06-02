@@ -42,79 +42,166 @@ public class User {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
 	private Set<UserRole> userRoles = new HashSet<UserRole>();
 	
+	@Column(name="nombre", unique=true, nullable=false, length=45)
+	private String nombre;
+	
+	@Column(name="apellido", unique=true, nullable=false, length=45)
+	private String apellido;
+	
+	@Column(name="documento")
+	private Long documento;
+	
+	@Column(name="email", unique=true, nullable=false, length=45)
+	private String email;
+	
+	@Column(name="tipo_doc")
+	private String tipo_doc;
 	
 	
 	public User() {
 		super();
 	}
 
-	public User(String username, String password, boolean enabled) {
+
+	public User(Long id, String username, String password, boolean enabled, LocalDateTime createdAt,
+			LocalDateTime updatedAt, Set<UserRole> userRoles, String nombre, String apellido, Long documento,
+			String email, String tipo_doc) {
+		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
-	}
-	
-	public User(String username, String password, boolean enabled, Set<UserRole> userRoles) {
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 		this.userRoles = userRoles;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.documento = documento;
+		this.email = email;
+		this.tipo_doc = tipo_doc;
 	}
+
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public LocalDateTime getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(LocalDateTime updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
 
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
+
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
+
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+
+	public Long getDocumento() {
+		return documento;
+	}
+
+
+	public void setDocumento(Long documento) {
+		this.documento = documento;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getTipo_doc() {
+		return tipo_doc;
+	}
+
+
+	public void setTipo_doc(String tipo_doc) {
+		this.tipo_doc = tipo_doc;
+	}
+	
+
+	
 	
 }

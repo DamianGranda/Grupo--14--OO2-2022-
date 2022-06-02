@@ -28,6 +28,7 @@ public class UserService implements UserDetailsService {
 	@Qualifier("userRepository")
 	private IUserRepository userRepository;
 	
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		sistema.integrador.oo2.entities.User user = userRepository.findByUsernameAndFetchUserRolesEagerly(username);

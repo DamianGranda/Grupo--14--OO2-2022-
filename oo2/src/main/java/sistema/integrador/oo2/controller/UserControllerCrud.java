@@ -1,6 +1,9 @@
 package sistema.integrador.oo2.controller;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +16,7 @@ import sistema.integrador.oo2.services.IUserService;
 
 @Controller
 public class UserControllerCrud {
-
+	BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 	@Autowired
 	private IUserService servicio;
 
@@ -27,11 +30,13 @@ public class UserControllerCrud {
 	public String mostrarFormularioDeRegistrarUser(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
+		
 		return "user/form";
 	}
 
 	@PostMapping("/listar")
 	public String guardarEstudiante(@ModelAttribute("user") User user) {
+		user.setPassword(pe.encode(user.getPassword()));
 		servicio.guardarUser(user);
 		return "redirect:/listar";
 	}
@@ -46,11 +51,15 @@ public class UserControllerCrud {
 	public String actualizarUser(@PathVariable Long id, @ModelAttribute("user") User user) {
 		User userExistente = servicio.obtenerUserPorId(id);
 		userExistente.setId(id);
+		userExistente.setApellido(user.getApellido());
+		userExistente.setNombre(user.getNombre());
+		userExistente.setDocumento(user.getDocumento());
+		userExistente.setTipo_doc(user.getTipo_doc());
+		userExistente.setEmail(user.getEmail());
 		userExistente.setUsername(user.getUsername());
-		userExistente.setPassword(user.getPassword());
+		userExistente.setPassword(pe.encode(user.getPassword()));
 		userExistente.setEnabled(user.isEnabled());
-		userExistente.setCreatedAt(user.getCreatedAt());
-		userExistente.setUpdatedAt(user.getUpdatedAt());
+		userExistente.setUpdatedAt(LocalDateTime.now());
 		//userExistente.setUserRoles(user.getUserRoles());// lo comento pórque todavia no hice lo de los roles
 
 		servicio.actualizarUser(userExistente);
