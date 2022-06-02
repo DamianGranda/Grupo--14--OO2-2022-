@@ -7,7 +7,8 @@ import sistema.integrador.oo2.entities.User;
 
 public interface IUserService{
 	public List<User>listar();
-	public Optional<User>listarId(Long id);
-	public int save(User u);
-	public void delete(Long id);
+	public User guardarUser(User user);
+	public User obtenerUserPorId(Long id);
+	public User actualizarUser(User user);
+	public void eliminarUser(Long id);
 }
