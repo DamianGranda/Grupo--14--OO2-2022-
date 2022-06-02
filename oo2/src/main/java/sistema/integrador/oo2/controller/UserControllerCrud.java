@@ -41,7 +41,7 @@ public class UserControllerCrud {
 		
 		u.setPassword(pe.encode(u.getPassword()));
 		service.save(u);
-		return "redirect:listar";
+		return "redirect:/listar";
 	}
 	
 	@GetMapping("/editar/{id}")

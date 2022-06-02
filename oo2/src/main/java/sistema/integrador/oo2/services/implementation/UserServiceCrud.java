@@ -21,7 +21,7 @@ public class UserServiceCrud implements IUserService {
 
 	@Override
 	public Optional<User> listarId(Long id) {
-		return data.findById(id);
+		return data.findById((long)id);
 	}
 
 	@Override
