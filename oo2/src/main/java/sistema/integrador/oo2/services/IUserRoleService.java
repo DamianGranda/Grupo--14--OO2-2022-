@@ -2,6 +2,7 @@ package sistema.integrador.oo2.services;
 
 import java.util.List;
 
+
 import sistema.integrador.oo2.entities.UserRole;
 
 public interface IUserRoleService {

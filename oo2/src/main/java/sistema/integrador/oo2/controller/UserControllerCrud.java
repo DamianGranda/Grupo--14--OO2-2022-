@@ -3,6 +3,7 @@ package sistema.integrador.oo2.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import sistema.integrador.oo2.entities.User;
 import sistema.integrador.oo2.services.IUserService;
 
 @Controller
+
 public class UserControllerCrud {
 	BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 	
@@ -36,7 +38,7 @@ public class UserControllerCrud {
 	}
 
 	@PostMapping("/listar")
-	public String guardarU(@ModelAttribute("user") User user) {
+	public String guardarUser(@ModelAttribute("user") User user) {
 		user.setPassword(pe.encode(user.getPassword()));
 		servicio.guardarUser(user);
 		return "redirect:/listar";

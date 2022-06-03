@@ -3,12 +3,13 @@ package sistema.integrador.oo2.services.implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import sistema.integrador.oo2.entities.UserRole;
 import sistema.integrador.oo2.repositories.IUserRoleRepositoryCRUD;
 import sistema.integrador.oo2.services.IUserRoleService;
 
-
+@Service
 public class UserRoleServiceimpl implements IUserRoleService {
 	
 	@Autowired

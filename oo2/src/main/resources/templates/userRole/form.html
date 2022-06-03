@@ -24,10 +24,11 @@
 								<option th:value="'ROLE_ADMIN'" th:text="ADMINISTRADOR"></option>
 							</select>
 							<div class="form-group">
-							<label>INDIQUE EL NOMBRE DEL USUARIO A INDICAR EL ROL</label> 
-							<input th:field="*{user}" type="text" 
-								class="form-control" /><!-- Esta bien que ponga user? -->
-						</div>
+							<label>INDIQUE EL username DEL USUARIO A INDICAR EL ROL</label> 
+							<select th:field="*{user}"   >
+								<option  th:each="user : ${users}" th:value="${user}" th:text="${user.id}"></option>
+							</select>
+							
 						</div>
 					</div>
 					<div class="card-footer">

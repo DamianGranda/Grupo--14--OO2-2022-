@@ -47,8 +47,6 @@ public class UserRole {
 		super();
 	}
 
-
-
 	public UserRole(Long id, User user, String role) {
 		this.id = id;
 		this.user = user;
