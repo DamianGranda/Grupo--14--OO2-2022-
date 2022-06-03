@@ -24,7 +24,7 @@ public class UserRole {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id", nullable=false)
@@ -49,7 +49,7 @@ public class UserRole {
 
 
 
-	public UserRole(int id, User user, String role) {
+	public UserRole(Long id, User user, String role) {
 		this.id = id;
 		this.user = user;
 		this.role = role;
@@ -57,13 +57,13 @@ public class UserRole {
 
 
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

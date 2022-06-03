@@ -57,6 +57,8 @@ public class User {
 	@Column(name="tipo_doc")
 	private String tipo_doc;
 	
+	@Column(name="rol")
+	private String rol;
 	
 	public User() {
 		super();
@@ -199,6 +201,16 @@ public class User {
 
 	public void setTipo_doc(String tipo_doc) {
 		this.tipo_doc = tipo_doc;
+	}
+
+
+	public String getRol() {
+		return rol;
+	}
+
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 	
 

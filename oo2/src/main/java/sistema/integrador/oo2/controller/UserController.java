@@ -22,7 +22,7 @@ public class UserController {
 		model.addAttribute("logout", logout);
 		return ViewRouteHelper.USER_LOGIN;
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request){
 

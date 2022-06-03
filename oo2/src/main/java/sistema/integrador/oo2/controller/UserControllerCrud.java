@@ -17,6 +17,7 @@ import sistema.integrador.oo2.services.IUserService;
 @Controller
 public class UserControllerCrud {
 	BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
+	
 	@Autowired
 	private IUserService servicio;
 
@@ -35,7 +36,7 @@ public class UserControllerCrud {
 	}
 
 	@PostMapping("/listar")
-	public String guardarEstudiante(@ModelAttribute("user") User user) {
+	public String guardarU(@ModelAttribute("user") User user) {
 		user.setPassword(pe.encode(user.getPassword()));
 		servicio.guardarUser(user);
 		return "redirect:/listar";
@@ -60,7 +61,7 @@ public class UserControllerCrud {
 		userExistente.setPassword(pe.encode(user.getPassword()));
 		userExistente.setEnabled(user.isEnabled());
 		userExistente.setUpdatedAt(LocalDateTime.now());
-		//userExistente.setUserRoles(user.getUserRoles());// lo comento pórque todavia no hice lo de los roles
+		userExistente.setRol(user.getRol());
 
 		servicio.actualizarUser(userExistente);
 		return "redirect:/listar";

@@ -1,4 +1,4 @@
-package sistema.integrador.oo2.services;
+package sistema.integrador.oo2.services.implementation;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import sistema.integrador.oo2.entities.User;
 import sistema.integrador.oo2.repositories.IUserRepositoryCRUD;
+import sistema.integrador.oo2.services.IUserService;
 
 @Service
 public class UserServiceimpl implements IUserService {
