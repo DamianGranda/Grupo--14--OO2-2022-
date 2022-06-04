@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<title>UNLa</title>
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous"/>
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 </head>
+
 <body>
 	<div class="container mt-4">
 		<div class="col-sm-6">
@@ -18,23 +18,24 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group">
-							<label>ROL</label> 
+							<label>ROL</label>
 							<select th:field="*{role}">
 								<option th:value="'ROLE_USER'" th:text="AUDITOR"></option>
 								<option th:value="'ROLE_ADMIN'" th:text="ADMINISTRADOR"></option>
 							</select>
 							<div class="form-group">
-							<label>INDIQUE EL username DEL USUARIO A INDICAR EL ROL</label> 
-							<select th:field="*{user}"   >
-								<option  th:each="user : ${users}" th:value="${user}" th:text="${user.id}"></option>
-							</select>
-							
+								<label>INDIQUE EL username DEL USUARIO A INDICAR EL ROL</label>
+								<select th:field="${userRole.user}">
+									<option th:each="user : ${users}" th:value="${user.id}" th:text="${user.nombre}">
+									</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="card-footer">
+							<input type="submit" value="Guardar" class="btn btn-success">
 						</div>
 					</div>
-					<div class="card-footer">
-						<input type="submit" value="Guardar" class="btn btn-success">
-					</div>
-				</div>
 			</form>
 		</div>
 	</div>
@@ -42,4 +43,5 @@
 	<script src="/vendor/jquery/jquery.min.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
