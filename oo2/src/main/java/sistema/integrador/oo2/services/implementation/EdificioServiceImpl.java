@@ -9,32 +9,39 @@ import org.springframework.stereotype.Service;
 import sistema.integrador.oo2.entities.Aula;
 import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.repositories.IEdificioRepositoryCRUD;
+import sistema.integrador.oo2.services.IEdificioService;
 
-@Service()
-public class EdificioServiceImpl {
+@Service
+public class EdificioServiceImpl implements IEdificioService {
 
-	@Autowired
 	
+	@Autowired
 	private IEdificioRepositoryCRUD repositorio;
 	
+	@Override
 	public  List<Edificio> listar() {
 		return repositorio.findAll();
 	}
-	
+
+	@Override
 	public Edificio guardarEdificio(Edificio edificio) {
 		return repositorio.save(edificio);
 	}
 
-	public Edificio obtenerEdificioPorId(Long id) {
+	
+	@Override
+	public void eliminarEdificio(int id) {
+		repositorio.deleteById(id);
+	}
+
+	@Override
+	public Edificio obtenerEdificio(int id) {
 		return repositorio.findById(id).get();
 	}
 
-	public Edificio actualizarUser(Edificio edificio) {
+	@Override
+	public Edificio actualizarEdificio(Edificio edificio) {
 		return repositorio.save(edificio);
-	}
-
-	public void eliminarEdificio(Long id) {
-		repositorio.deleteById(id);
 	}
 	
 	

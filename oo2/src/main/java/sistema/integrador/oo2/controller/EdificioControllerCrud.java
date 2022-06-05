@@ -37,14 +37,14 @@ public class EdificioControllerCrud {
 		return "redirect:/listar/edificios";
 	}
 	@GetMapping("/listar/edifio/editar/{id}")
-	public String mostrarFormularioDeEditar(@PathVariable Long id,Model model) {
+	public String mostrarFormularioDeEditar(@PathVariable int id,Model model) {
 		model.addAttribute("edificio", servicio.obtenerEdificio(id));
 		return "edificio/editar_edificio";//hacer el html de editar
 	}
 	
-	@PostMapping("/listar/roles/{id}")
+	@PostMapping("/listar/edificio/{id}")
 	public String actualizarEdificio(@PathVariable int id, @ModelAttribute("edificio") Edificio edificio) {
-		Edificio edificioExistente=servicio.obtenerEdificio((long)id);
+		Edificio edificioExistente=servicio.obtenerEdificio(id);
 		edificioExistente.setId(id);
 		edificioExistente.setEdificio(edificio.getEdificio());
 		edificioExistente.setAula(edificio.getAula());
@@ -55,7 +55,7 @@ public class EdificioControllerCrud {
 	}
 	
 	@GetMapping("/listar/edificios/{id}")
-	public String eliminarEdificio(@PathVariable Long id) {
+	public String eliminarEdificio(@PathVariable int id) {
 		servicio.eliminarEdificio(id);
 		
 		return "redirect:/listar/roles";
