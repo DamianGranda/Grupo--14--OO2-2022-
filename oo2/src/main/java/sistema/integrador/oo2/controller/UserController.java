@@ -2,11 +2,13 @@ package sistema.integrador.oo2.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import sistema.integrador.oo2.helpers.ViewRouteHelper;
 
@@ -40,7 +42,12 @@ public class UserController {
 	//}
 	
 	@GetMapping("/loginsuccess")
-	public String loginCheck() {
-		return "redirect:/inicio/index";
+	public RedirectView loginCheck() {
+		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String rol = (auth.getAuthorities().toString()).toUpperCase();
+		String ruta = "/";
+		if(rol.contains("ROLE_AUDITOR")) ruta = ViewRouteHelper.AUDITOR_ROOT;
+		if(rol.contains("ROLE_ADMIN")) ruta = ViewRouteHelper.ADMINISTRADOR_ROOT;
+		return new RedirectView(ruta);
 	}
 }
