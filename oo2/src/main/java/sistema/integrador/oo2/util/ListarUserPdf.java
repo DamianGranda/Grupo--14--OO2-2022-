@@ -22,15 +22,15 @@ import com.lowagie.text.pdf.PdfWriter;
 import sistema.integrador.oo2.entities.User;
 
 
-@Component("/listar")
-public abstract class ListarUsuariosPdf extends AbstractPdfView {
+@Component("user/lista")
+public class ListarUserPdf extends AbstractPdfView {
 
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		@SuppressWarnings("unchecked")
-		List<User> listadoUsuarios = (List<User>) model.get("listaUsuarios");
+		List<User> listadoUsuarios = (List<User>) model.get("users");
 		
 		response.setHeader("Content-Disposition","attachment; filename=Lista-de-usuarios"+LocalDate.now().toString()+".pdf");
 		PdfPTable tablaUsuarios = new PdfPTable(7);
