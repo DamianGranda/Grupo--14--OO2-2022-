@@ -179,42 +179,9 @@ CREATE TABLE `espacio` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `perfil`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `perfil`(
-  `id_perfil` int NOT NULL AUTO_INCREMENT,
-  `createdat` datetime(6) DEFAULT NULL,
-  `descripcion` varchar(255) DEFAULT NULL,
-  `tipo_perfil` varchar(50) NOT NULL,
-  `updatedat` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`id_perfil`),
-  UNIQUE KEY `UK_3b0dloqo94v7r6tjahpid9hc3` (`tipo_perfil`),
-  UNIQUE KEY `UK_2h0kpmwd7jmkuhc4w71rgflnk` (`descripcion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `apellido` varchar(255) NOT NULL,
-  `contraseña` varchar(60) NOT NULL,
-  `createdat` datetime(6) DEFAULT NULL,
-  `documento` bigint NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `enabled` bit(1) DEFAULT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `nombre_de_usuario` varchar(45) NOT NULL,
-  `tipo_doc` varchar(5) NOT NULL,
-  `updatedat` datetime(6) DEFAULT NULL,
-  `id_perfil` int NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `UK_sqdsrgo7yd5nlfxh382v44rj9` (`documento`),
-  UNIQUE KEY `UK_puhr3k3l7bj71hb7hk7ktpxn0` (`nombre_de_usuario`),
-  KEY `FK131gkl0dt1966rsw6dmesnsxw` (`id_perfil`),
-  CONSTRAINT `FK131gkl0dt1966rsw6dmesnsxw` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+insert into user_role values(1,now(),'ROLE_ADMIN',now()) ,(2,now(),'ROLE_AUDITOR',now());
+insert into user values(1,'apellidoUser',now(),123,'user@gmail.com',1,'userNombre','$2a$10$WIa5PHoUh5a1mMLKHoejneczGu0GsiJNfnTbU78EKxOFw8Ca3/GOa','DNI',now(),'user',1);
 
-insert into user values(3,1,'$2a$10$F7sv9PxxcyMjBpkHmjkvtOj1jSm3D4.sSc/jL4bEH69b1IjxZ83yu',now(),'user',now());
-insert into user_role values(3,now(),'ROLE_USER',now(),3);
+select * from user;
+select * from user_role;
