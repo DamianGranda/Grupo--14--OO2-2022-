@@ -14,6 +14,6 @@ import sistema.integrador.oo2.entities.User;
 @Repository("userRepository")
 public interface IUserRepository extends JpaRepository<User, Serializable> {
 
-	@Query("SELECT u FROM User u JOIN FETCH u.userRoles WHERE u.username = (:username)")
-	public abstract User findByUsernameAndFetchUserRolesEagerly(@Param("username") String username);
+	@Query("SELECT u FROM User u JOIN FETCH u.role WHERE u.username = (:username)")
+	public abstract User findByUsernameAndFetchUserRoleEagerly(@Param("username") String username);
 }

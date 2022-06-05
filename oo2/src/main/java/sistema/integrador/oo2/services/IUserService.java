@@ -1,7 +1,6 @@
 package sistema.integrador.oo2.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import sistema.integrador.oo2.entities.User;
 

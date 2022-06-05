@@ -31,8 +31,8 @@ public class UserService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		sistema.integrador.oo2.entities.User user = userRepository.findByUsernameAndFetchUserRolesEagerly(username);
-		return buildUser(user, buildGrantedAuthorities(user.getUserRoles()));
+		sistema.integrador.oo2.entities.User user = userRepository.findByUsernameAndFetchUserRoleEagerly(username);
+		return buildUser(user, buildGrantedAuthorities(user.getRole()));
 	}
 	
 	private User buildUser(sistema.integrador.oo2.entities.User user, List<GrantedAuthority> grantedAuthorities) {
@@ -41,11 +41,11 @@ public class UserService implements UserDetailsService {
 						grantedAuthorities);
 	}
 	
-	private List<GrantedAuthority> buildGrantedAuthorities(Set<UserRole> userRoles) {
+	private List<GrantedAuthority> buildGrantedAuthorities(UserRole userRole1) {//revisar si esta bien esto corregido :D
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
-		for(UserRole userRole: userRoles) {
-			grantedAuthorities.add(new SimpleGrantedAuthority(userRole.getRole()));
-		}
+		
+		grantedAuthorities.add(new SimpleGrantedAuthority(userRole1.getRole()));
+		
 		return new ArrayList<GrantedAuthority>(grantedAuthorities);
 	}
 }

@@ -1,5 +1,6 @@
 package sistema.integrador.oo2.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -19,16 +20,18 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 
 @Entity
-@Table(name="user_role", uniqueConstraints=@UniqueConstraint(columnNames= {"role", "user_id"}))
-public class UserRole {
+@Table(name="user_role")
+public class UserRole implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="user_id", nullable=false)
-	private User user;
 	
 	@Column(name="role", nullable=false, length=100)
 	private String role;
@@ -47,9 +50,8 @@ public class UserRole {
 		super();
 	}
 
-	public UserRole(Long id, User user, String role) {
+	public UserRole(Long id, String role) {
 		this.id = id;
-		this.user = user;
 		this.role = role;
 	}
 
@@ -67,15 +69,6 @@ public class UserRole {
 
 
 
-	public User getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 
 

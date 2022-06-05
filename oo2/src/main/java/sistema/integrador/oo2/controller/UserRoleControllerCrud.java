@@ -48,7 +48,7 @@ public class UserRoleControllerCrud {
 		userRoleExistente.setId(id);
 		userRoleExistente.setRole(userRole.getRole());
 		userRoleExistente.setUpdatedAt(LocalDateTime.now());
-		userRoleExistente.setUser(userRole.getUser());//revisar bien este
+		
 		
 		servicio.actualizarUserRole(userRoleExistente);
 		return "redirect:/listar/roles";

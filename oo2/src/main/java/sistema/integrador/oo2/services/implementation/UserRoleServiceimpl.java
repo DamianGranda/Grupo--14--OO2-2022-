@@ -9,6 +9,10 @@ import sistema.integrador.oo2.entities.UserRole;
 import sistema.integrador.oo2.repositories.IUserRoleRepositoryCRUD;
 import sistema.integrador.oo2.services.IUserRoleService;
 
+
+
+
+
 @Service
 public class UserRoleServiceimpl implements IUserRoleService {
 	

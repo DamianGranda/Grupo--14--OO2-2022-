@@ -58,11 +58,13 @@
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>ROL</label> 
-							<select th:field="*{rol}">
-								<option th:value="'ROLE_USER'" th:text="AUDITOR"></option>
-								<option th:value="'ROLE_ADMIN'" th:text="ADMINISTRADOR"></option>
-							</select>
+							 <label> ROL </label>
+                    			<select class="form-select center" id="role" th:field="*{role}" name="role">
+                        		<option th:each="role : ${listRole}"
+                                	th:value="${(role.id)}" 
+                                	th:text="${role.role}">
+                        	</option>
+                    </select>
 						</div>
 					</div>
 					<div class="card-footer">

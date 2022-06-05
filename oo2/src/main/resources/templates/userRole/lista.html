@@ -18,14 +18,12 @@
 				<tr>
 					<th>ID</th>
 					<th>Rol</th>
-					<th>Username</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="userRole:${userRoles}">
 					<td th:text="${userRole.id}"></td>
 					<td th:text="${userRole.role}"></td>
-					<td th:text="${userRole.user.username}"></td> <!-- ver si se puede hacer asi -->
 					<td>
 					<a th:href="@{/listar/roles/editar/{id}(id=${userRole.id})}" class="btn btn-info">Editar</a>
 					<a th:href="@{/listar/roles/{id}(id=${userRole.id})}" class="btn btn-danger">Eliminar</a>

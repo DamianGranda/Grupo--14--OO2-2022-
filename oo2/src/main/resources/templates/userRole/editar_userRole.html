@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <title>UNLa</title>
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous"/>
+	crossorigin="anonymous" />
 </head>
 <body>
 	<div class="container mt-4">
 		<div class="col-sm-6">
-			<form th:action="@{/listar/roles}" th:object=${userRole} method="POST">
+			<form th:action="@{/listar/roles/{id}(id=${userRole.id})}" th:object=${userRole}
+				method="POST">
 				<div class="card">
 					<div class="card-header">
-						<h3>Modulo UserRole</h3>
+						<h3>Editar UserRole</h3>
 					</div>
 					<div class="card-body">
 						<div class="form-group">
@@ -22,7 +24,7 @@
 							<input th:field="*{role}" type="text"
 								class="form-control" />
 						</div>
-						
+					</div>
 					<div class="card-footer">
 						<input type="submit" value="Guardar" class="btn btn-success">
 					</div>

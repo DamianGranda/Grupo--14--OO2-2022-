@@ -1,9 +1,9 @@
 package sistema.integrador.oo2.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,16 +12,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.var;
 import sistema.integrador.oo2.entities.User;
+import sistema.integrador.oo2.entities.UserRole;
+import sistema.integrador.oo2.services.IUserRoleService;
 import sistema.integrador.oo2.services.IUserService;
 
-@Controller
 
+@Controller
 public class UserControllerCrud {
 	BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 	
 	@Autowired
 	private IUserService servicio;
+	
+	@Autowired
+	private IUserRoleService servicioRole;
 
 	@GetMapping("/listar")
 	public String listarUsers(Model model) {
@@ -33,6 +39,9 @@ public class UserControllerCrud {
 	public String mostrarFormularioDeRegistrarUser(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
+		
+		List<UserRole> listRole = servicioRole.listar(); 
+        model.addAttribute("listRole", listRole); 
 		
 		return "user/form";
 	}
@@ -47,6 +56,8 @@ public class UserControllerCrud {
 	@GetMapping("/listar/editar/{id}")
 	public String mostrarFormularioDeEditar(@PathVariable Long id,Model model) {
 		model.addAttribute("user", servicio.obtenerUserPorId(id));
+		List<UserRole> listRole = servicioRole.listar(); 
+        model.addAttribute("listRole", listRole);
 		return "user/editar_user";
 	}
 
@@ -63,7 +74,7 @@ public class UserControllerCrud {
 		userExistente.setPassword(pe.encode(user.getPassword()));
 		userExistente.setEnabled(user.isEnabled());
 		userExistente.setUpdatedAt(LocalDateTime.now());
-		userExistente.setRol(user.getRol());
+		userExistente.setRole(user.getRole());
 
 		servicio.actualizarUser(userExistente);
 		return "redirect:/listar";
