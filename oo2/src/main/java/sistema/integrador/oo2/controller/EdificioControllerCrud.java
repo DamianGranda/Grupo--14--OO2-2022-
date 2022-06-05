@@ -1,6 +1,5 @@
 package sistema.integrador.oo2.controller;
 
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.services.IEdificioService;
@@ -60,6 +60,11 @@ public class EdificioControllerCrud {
 		
 		return "redirect:/listar/roles";
 	}
-	
+	@GetMapping("/aula/{id}")
+	public String buscarPorIDYAulas(Edificio edificio,Model model) {
+		
+		model.addAttribute("edificio", servicio.buscarPorIDYAulas(edificio.getId()));
+		return "edificio/edificio";
+	}
 	
 }

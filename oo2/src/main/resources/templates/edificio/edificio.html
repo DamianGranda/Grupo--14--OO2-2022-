@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org" xmlns:sec="htpp://www.thymeleaf.org/extras/spring-security">
+	<section>
+		<div class="px-5 py-5 d-flex justify-content-center">		
+			<div class="col-md-6">				
+					<div class="card">
+						<div class="card-header">
+						
+						<h2 class="center">
+							<a th:href="@{/listar/edificio}" class="btn btn-warning mt-2" ><i class="fa-solid fa-arrow-left fa-lg me-1"></i>[[#{go-back}]]</a>							
+						</h2>
+						
+						<hr>
+						
+						<h2 class="center"> [[#{navbar-classroom}]]
+							<!--  <i class="fa-brands fa-dropbox fa-lg me-2"></i>[[#{total-size}]] [[${edificio.aula.size()}]]-->
+							<!-- HAY QUE MODIFICAR LOS HREF -->
+							<!--<a class="btn btn-primary" th:href="@{/classroom/addLaboratory/} + ${building.idBuilding}" sec:authorize="hasRole('ROLE_ADMIN')"><i class="fas fa-plus fa-lg me-1"></i>[[#{classroom-laboratory-add}]]</a>
+							<a class="btn btn-primary" th:href="@{/classroom/addTraditional/} + ${building.idBuilding}" sec:authorize="hasRole('ROLE_ADMIN')"><i class="fas fa-plus fa-lg me-1"></i>[[#{classroom-traditional-add}]]</a>-->
+						</h2>
+						<div class="left px-5 me-0" th:if="${edificio.aula != null and ! edificio.aula.empty}"> <!-- CONDICION: LISTA DIFERENTE DE: NULL Y EMPTY -->						
+							<table class="table table-hover align-middle align-center"> <!-- TABLA -->	
+								<thead class="thead-dark">								
+									<tr> <!-- Fila de Tabla -->
+										<th>[[#{classroom-building}]]</th> <!--Celda Encabezado de tabla (negrita) -->
+										<th>[[#{classroom-number}]]</th>
+										<th sec:authorize="hasRole ('ROLE_ADMIN')">[[#{action-bring}]]</th>
+										<th sec:authorize="hasRole ('ROLE_ADMIN')">[[#{action-edit}]]</th>
+										<th sec:authorize="hasRole ('ROLE_ADMIN')">[[#{action-delete}]]</th>
+									</tr>
+								</thead>
+													
+								<tbody>									
+									<tr th:each="aula : ${edificio.aula}"> <!-- bucle fore que recorre la lista -->
+										<td th:text="${aula.edificio.edificio}">Nombre del edificio</td>
+										<td th:text="${aula.numero}">Numero de aula</td>
+										
+										<td>			
+											<!--  <a th:href="@{/classroom/classroom/} + ${classroom.idClassroom}" class="btn btn-info"><i class="fa-solid fa-magnifying-glass-plus me-1"></i>[[#{action-bring}]]</a>-->
+										</td> <!-- NO AGREGA AUTORIZACION - TODOS PUEDEN VER EL OBJETO -->										
+										
+										<td sec:authorize="hasRole ('ROLE_ADMIN')">
+											<!--  <a th:href="@{/classroom/edit/} + ${classroom.idClassroom}" class="btn btn-dark"><i class="fa-solid fa-pen-to-square me-1"></i>[[#{action-edit}]]</a>-->
+										</td> <!-- TYPE: PATH VARIABLE ${class.idClass}-->											
+										<td sec:authorize="hasRole ('ROLE_ADMIN')">
+<!-- 											<a th:href="@{/classroom/delete(idClassroom=${classroom.idClassroom})}" class="btn btn-danger opacity-100"><i class="fa-solid fa-trash-can me-1"></i> [[#{action-delete}]]</a> -->
+										</td> <!-- TYPE: QUERY PARAMETERS -->
+									</tr>
+								</tbody>
+							</table>						
+						</div>
+						<div class="text-center p-2 fw-bold mb-2 text-uppercase" th:if="${edificio.aula == null or edificio.aula.empty}"><hr><h2>no hay nada</h2></div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</section>
+</html>

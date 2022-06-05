@@ -2,6 +2,7 @@ package sistema.integrador.oo2.services;
 
 import java.util.List;
 
+
 import sistema.integrador.oo2.entities.Edificio;
 
 
@@ -11,4 +12,6 @@ public interface IEdificioService {
 	public Edificio obtenerEdificio(int id);
 	public Edificio actualizarEdificio(Edificio edificio);
 	public void eliminarEdificio(int id);
+	public Edificio buscarPorIDYAulas(int id); // Trae el edificio y sus aulas
+	
 }

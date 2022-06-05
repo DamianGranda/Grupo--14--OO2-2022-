@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @Inheritance(
 	    strategy = InheritanceType.JOINED
 	)
-public abstract class Aula implements Serializable {
+public class Aula implements Serializable {
 
 	
 	/**

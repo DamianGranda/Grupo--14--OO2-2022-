@@ -43,6 +43,12 @@ public class EdificioServiceImpl implements IEdificioService {
 	public Edificio actualizarEdificio(Edificio edificio) {
 		return repositorio.save(edificio);
 	}
+
+	@Override
+	public Edificio buscarPorIDYAulas(int id) {
+		return repositorio.buscarPorIDYAulas(id);
+		
+	}
 	
 	
 }
