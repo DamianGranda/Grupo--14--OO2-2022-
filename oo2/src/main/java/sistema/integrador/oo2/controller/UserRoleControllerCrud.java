@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import sistema.integrador.oo2.entities.UserRole;
 import sistema.integrador.oo2.services.IUserRoleService;
 
+//ADMIN.....
  @Controller
 public class UserRoleControllerCrud {
 	
@@ -61,6 +62,12 @@ public class UserRoleControllerCrud {
 		return "redirect:/listar/roles";
 	}
 	
+	//Auditor....
+	@GetMapping("/listarAuditor/roles")
+	public String listarRolesAuditor(Model model) {
+		model.addAttribute("userRoles", servicio.listar());
+		return "userRole/listaAuditor";
+	}
 	
 	
 }

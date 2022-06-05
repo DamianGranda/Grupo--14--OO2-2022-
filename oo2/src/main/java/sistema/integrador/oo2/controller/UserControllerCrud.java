@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import lombok.var;
 import sistema.integrador.oo2.entities.User;
 import sistema.integrador.oo2.entities.UserRole;
 import sistema.integrador.oo2.services.IUserRoleService;
 import sistema.integrador.oo2.services.IUserService;
 
-
+// ADMINISTRADOR.....
 @Controller
+@RequestMapping({"/admin","/auditor"})
 public class UserControllerCrud {
 	BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 	
@@ -28,7 +29,11 @@ public class UserControllerCrud {
 	
 	@Autowired
 	private IUserRoleService servicioRole;
-
+	
+	@GetMapping("/mostrar")
+	public String mostrarVistaAdministrador(Model model) {
+		return "user/ViewAdmin";
+	}
 	@GetMapping("/listar")
 	public String listarUsers(Model model) {
 		model.addAttribute("users", servicio.listar());
@@ -50,7 +55,7 @@ public class UserControllerCrud {
 	public String guardarUser(@ModelAttribute("user") User user) {
 		user.setPassword(pe.encode(user.getPassword()));
 		servicio.guardarUser(user);
-		return "redirect:/listar";
+		return "redirect:/admin/listar";
 	}
 
 	@GetMapping("/listar/editar/{id}")
@@ -77,13 +82,27 @@ public class UserControllerCrud {
 		userExistente.setRole(user.getRole());
 
 		servicio.actualizarUser(userExistente);
-		return "redirect:/listar";
+		return "redirect:/admin/listar";
 	}
 
 	@GetMapping("/listar/{id}")
 	public String eliminarUser(@PathVariable Long id) {
 		servicio.eliminarUser(id);
-		return "redirect:/listar";
+		return "redirect:/admin/listar";
 
 	}
+	
+	// AUDITOR......
+	
+	@GetMapping("/listarAuditor")
+	public String listarUsersAuditor(Model model) {
+		model.addAttribute("users", servicio.listar());
+		return "user/listaAuditor";
+	}
+	
+	@GetMapping("/mostrarAuditor")
+	public String mostrarVistaAuditor(Model model) {
+		return "user/ViewAuditor";
+	}
+	
 }

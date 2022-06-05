@@ -12,6 +12,7 @@ import sistema.integrador.oo2.helpers.ViewRouteHelper;
 @Controller
 @RequestMapping("/")
 public class InicioControlador {
+	
 	@GetMapping("/")
 	public String index(Model model, @RequestParam(name="perfil",required=false) String perfil) {
 	org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();

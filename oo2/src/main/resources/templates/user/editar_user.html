@@ -11,7 +11,7 @@
 <body>
 	<div class="container mt-4">
 		<div class="col-sm-6">
-			<form th:action="@{/listar/{id}(id=${user.id})}" th:object=${user} method="POST">
+			<form th:action="@{/admin/listar/{id}(id=${user.id})}" th:object=${user} method="POST">
 				<div class="card">
 					<div class="card-header">
 						<h3>Editar User</h3>

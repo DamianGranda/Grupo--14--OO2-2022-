@@ -10,23 +10,21 @@
 </head>
 <body>
 	<div class="container mt-4">
-	<a th:href="@{/admin/listar/nuevo}"class="btn btn-primary">NUEVO</a>
 	<a th:href="@{/logout}"class="btn btn-primary">SALIR</a>
+	<a th:href="@{/listarAuditor/roles/?format=pdf}"class="btn btn-primary">DESCARGAR</a>
 		<br> <br>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>USERNAME</th>
+					<th>Rol</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="user:${users}">
-					<td th:text="${user.id}"></td>
-					<td th:text="${user.username}"></td>
+				<tr th:each="userRole:${userRoles}">
+					<td th:text="${userRole.id}"></td>
+					<td th:text="${userRole.role}"></td>
 					<td>
-					<a th:href="@{/admin/listar/editar/{id}(id=${user.id})}" class="btn btn-info">Editar</a>
-					<a th:href="@{/admin/listar/{id}(id=${user.id})}" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>

@@ -22,7 +22,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import sistema.integrador.oo2.entities.User;
 
 
-@Component("user/lista")
+@Component("user/listaAuditor")
 public class ListarUserPdf extends AbstractPdfView {
 
 	@Override
