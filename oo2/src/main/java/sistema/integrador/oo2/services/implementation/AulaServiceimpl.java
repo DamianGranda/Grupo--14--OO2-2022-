@@ -3,11 +3,12 @@ package sistema.integrador.oo2.services.implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import sistema.integrador.oo2.entities.Aula;
 import sistema.integrador.oo2.repositories.IAulaRepositoryCRUD;
 import sistema.integrador.oo2.services.IAulaService;
-
+@Service
 public class AulaServiceimpl implements IAulaService {
 	
 	@Autowired

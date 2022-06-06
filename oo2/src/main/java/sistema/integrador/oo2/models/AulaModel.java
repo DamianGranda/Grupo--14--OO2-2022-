@@ -2,7 +2,7 @@ package sistema.integrador.oo2.models;
 
 import sistema.integrador.oo2.entities.Edificio;
 
-public abstract class AulaModel {
+public class AulaModel {
 
 		protected int id;
 		protected int numero;

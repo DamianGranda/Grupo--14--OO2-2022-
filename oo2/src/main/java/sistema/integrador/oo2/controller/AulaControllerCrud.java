@@ -16,6 +16,8 @@ import sistema.integrador.oo2.entities.Aula;
 import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.entities.Laboratorio;
 import sistema.integrador.oo2.entities.Tradicional;
+import sistema.integrador.oo2.services.IAulaService;
+import sistema.integrador.oo2.services.IEdificioService;
 import sistema.integrador.oo2.services.implementation.AulaServiceimpl;
 import sistema.integrador.oo2.services.implementation.EdificioServiceImpl;
 
@@ -23,36 +25,49 @@ import sistema.integrador.oo2.services.implementation.EdificioServiceImpl;
 public class AulaControllerCrud {
 	
 	@Autowired
-	private AulaServiceimpl servicioAula;
+	private IAulaService serviceAula;
 	
-	@Autowired
-	private EdificioServiceImpl servicioEdificio;
+	//@Autowired
+	//private EdificioServiceImpl servicioEdificio; Es IEdificioService
+	//@Autowired
+	//private IEdificioService  serviceEdificio;
 	
-	@ModelAttribute("listEdificio")
-	public List<Edificio> listarEdificio(){
-		return servicioEdificio.listar();
+	
+	
+	//@ModelAttribute("listEdificio")
+	//public List<Edificio> listarEdificio(){
+		//return serviceEdificio.listar();
+	//}
+	
+	@GetMapping("/aula/({id}")
+	public Aula obtenerAula( int id, Model model){// Trae el aula por id
+		model.addAttribute("aula", serviceAula.obtenerAula(id));
+
+		
+	   return null;
 	}
-	
 	@GetMapping("/listar/aula")
 	public String listarAulas(Model model) {
-		model.addAttribute("aula", servicioAula.listar());
+		model.addAttribute("aula", serviceAula.listar());
 		return "aula/lista";//hay que hacer este html
 	}
 	
 	@PostMapping("/listar/aula")
 	public String guardarEdificio(@ModelAttribute("aula") Aula aula) {
-		servicioAula.guardarAula(aula);
+		//servicioAula.guardarAula(aula);
+		serviceAula.guardarAula(aula);
 		return "redirect:/listar/aula";
 	}
 	
 	@GetMapping("/listar/aula/{id}")
 	public String eliminarEdificio(@PathVariable int id) {
-		servicioAula.eliminarAula(id);
+		serviceAula.eliminarAula(id);
 		
 		return "redirect:/listar/aula";
 	}
 	
-	@GetMapping("/editar/{id}") // Al pasarle el parametro {idClassroom} lo relaciona con el parametro de classroom
+	
+	/*@GetMapping("/editar/{id}") // Al pasarle el parametro {idClassroom} lo relaciona con el parametro de classroom
 	public String editarAula(Aula aula, Model model)
 	{		
 	
@@ -70,9 +85,9 @@ public class AulaControllerCrud {
 		
 		return "classroom/modifyTraditional"; ////hacer el html de edit para tradicional
 	}
-	
+	*/
 	// Trae a la clase por Id y devuelve dependiendo la instancia que sea
-		@GetMapping("/aula/{id}")
+		/*@GetMapping("/aula/{id}")
 		public String bringInstance(Aula aula, Model model) {// Relaciona el Id con el parametro classroom 
 			
 
@@ -86,6 +101,6 @@ public class AulaControllerCrud {
 
 			model.addAttribute("classroom", (Laboratorio) verification);
 			return "classroom/laboratory";//hacer el html de lista laboraotrio
-		}
+		}*/
 		//hay que hacer los agregar, guardar y modificar de laboratori y tradicional
 }

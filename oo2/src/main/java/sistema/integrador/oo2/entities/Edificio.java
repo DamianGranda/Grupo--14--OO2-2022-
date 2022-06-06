@@ -26,18 +26,18 @@ public class Edificio implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="edificio", nullable=true,length=30)
-	private String edificio;
+	@Column(name="nombre", nullable=true,length=30)
+	private String nombre;
 	
 	@OneToMany(mappedBy = "edificio")
 	private Set<Aula> aula;
 	
 	public Edificio() {}
-	
-	public Edificio(int id, String edificio, Set<Aula> aula) {
+
+	public Edificio(int id, String nombre, Set<Aula> aula) {
 		super();
 		this.id = id;
-		this.edificio = edificio;
+		this.nombre = nombre;
 		this.aula = aula;
 	}
 
@@ -49,12 +49,12 @@ public class Edificio implements Serializable {
 		this.id = id;
 	}
 
-	public String getEdificio() {
-		return edificio;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setEdificio(String edificio) {
-		this.edificio = edificio;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public Set<Aula> getAula() {
@@ -64,6 +64,12 @@ public class Edificio implements Serializable {
 	public void setAula(Set<Aula> aula) {
 		this.aula = aula;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 	
 	
 }

@@ -12,5 +12,6 @@ public interface IEdificioRepositoryCRUD extends JpaRepository<Edificio,Integer>
 	
 	@Query("FROM Edificio e inner join fetch e.aula where e.id=(:id)")
 	public Edificio buscarPorIDYAulas(int id); // Para traer el edificio con sus respectivas aulas
-
+	
+	
 }

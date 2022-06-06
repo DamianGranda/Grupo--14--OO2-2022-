@@ -11,8 +11,8 @@ import sistema.integrador.oo2.entities.Aula;
 @Repository
 public interface IAulaRepositoryCRUD extends JpaRepository<Aula, Integer>  {
 	
-	@Query("FROM Aula a WHERE a.id = (:id)") // El metodo del JpaRepository NO trae las hijas
-	public Aula buscarPorID(int idClassroom);
+	@Query("FROM Aula a inner join fetch a.edificio where a.id=(:id)") // El metodo del JpaRepository NO trae las hijas
+	public Aula buscarPorID(int id);
 	
-	public List<Aula> buscarPorEdificio_id(int id);
+	//public List<Aula> buscarPorEdificio_id(int id);
 }
