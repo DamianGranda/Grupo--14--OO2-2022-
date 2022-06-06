@@ -40,10 +40,16 @@ public class AulaServiceimpl implements IAulaService {
 		
 	}
 
-
 	@Override
 	public List<Aula> buscarPorEdificio_ID(int id) {
-		return repositorio.buscarPorEdificio_id(id);
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+
+	/*@Override
+	public List<Aula> buscarPorEdificio_ID(int id) {
+		return repositorio.buscarPorEdificio_id(id);
+	}*/
 
 }

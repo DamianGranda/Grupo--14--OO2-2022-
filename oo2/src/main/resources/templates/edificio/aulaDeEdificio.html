@@ -9,27 +9,38 @@
 	crossorigin="anonymous"/>
 </head>
 <body>
-	
-	<div class="container mt-4" >
-	<a th:href="@{/logout}"class="btn btn-primary">SALIR</a>
-		<br> <br>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID AULA</th>
-					<th>NUMERO DE AULA</th>
+		<div class="container mt-4">
+			<a th:href="@{/logout}" class="btn btn-primary">SALIR</a> <br> <br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID AULA</th>
+						<th>NUMERO DE AULA</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="aula : ${edificio.aula}">
 					
-				</tr>
-			</thead>
-			<tbody>
-			<div th:if="${aula == null}"><h1>NO TIENE AULAS</h1>
-			<tr th:each="aula : ${edificio.aula}"> <!-- bucle fore que recorre la lista -->
-				<td th:text="${aula.id}"></td>
-				<td th:text="${aula.numero}"></td>
-				</tr>
-			</tbody></div>
-		</table>
-	</div>
+						<!-- bucle fore que recorre la lista -->
+						<div th:if="${aula != null}">
+							<td th:text="${aula.id}"></td>
+							<td th:text="${aula.numero}"></td>
+							<td> 
+							<a th:href="@{/traer/aula/{id}(id=${aula.id})}" class="btn btn-info">Informacion</a>
+							</td>
+						</div>
+					</tr>
+					
+					
+				</tbody>
+			</table>
+			
+		</div>
+		
+		
+	
+	
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>
 	    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -39,13 +39,28 @@ public class AulaControllerCrud {
 		//return serviceEdificio.listar();
 	//}
 	
-	@GetMapping("/aula/({id}")
+	/*@GetMapping("/aula/({id}")
 	public Aula obtenerAula( int id, Model model){// Trae el aula por id
 		model.addAttribute("aula", serviceAula.obtenerAula(id));
-
-		
-	   return null;
-	}
+	   return "";
+	}*/
+	
+	// Trae a la clase por Id y devuelve dependiendo la instancia que sea
+    @GetMapping("/traer/aula/{id}")
+    public String traer(Aula aula, Model model) {// Relaciona el Id con el parametro classroom 
+    	
+        if(serviceAula.obtenerAula(aula.getId()) instanceof Tradicional)
+        {
+        	Tradicional tradicional=(Tradicional) serviceAula.obtenerAula(aula.getId());
+            model.addAttribute("aula", tradicional);
+            return "aula/tradicional";
+        }
+        
+        Laboratorio laboratorio=(Laboratorio) serviceAula.obtenerAula(aula.getId());
+        model.addAttribute("aula", laboratorio);
+        return "aula/laboratorio";
+    }
+    
 	@GetMapping("/listar/aula")
 	public String listarAulas(Model model) {
 		model.addAttribute("aula", serviceAula.listar());
