@@ -1,0 +1,48 @@
+package sistema.integrador.oo2.services.implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import sistema.integrador.oo2.entities.Aula;
+import sistema.integrador.oo2.repositories.IAulaRepositoryCRUD;
+import sistema.integrador.oo2.services.IAulaService;
+
+public class AulaServiceimpl implements IAulaService {
+	
+	@Autowired
+	private IAulaRepositoryCRUD repositorio;
+
+	@Override
+	public List<Aula> listar() {
+		return repositorio.findAll();
+	}
+
+	@Override
+	public Aula guardarAula(Aula aula) {
+		return repositorio.save(aula);
+	}
+
+	@Override
+	public Aula obtenerAula(int id) {
+		return repositorio.findById(id).get();
+	}
+
+	@Override
+	public Aula actualizarAula(Aula aula) {
+		return repositorio.save(aula);
+	}
+
+	@Override
+	public void eliminarAula(int id) {
+		repositorio.deleteById(id);
+		
+	}
+
+
+	@Override
+	public List<Aula> buscarPorEdificio_ID(int id) {
+		return repositorio.buscarPorEdificio_id(id);
+	}
+
+}

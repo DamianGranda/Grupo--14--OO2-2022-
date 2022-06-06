@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import sistema.integrador.oo2.entities.Edificio;
 
-@Repository// tiene que estar?
+@Repository
 public interface IEdificioRepositoryCRUD extends JpaRepository<Edificio,Integer> {
 	
 	@Query("FROM Edificio e inner join fetch e.aula where e.id=(:id)")

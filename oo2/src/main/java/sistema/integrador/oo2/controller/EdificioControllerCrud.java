@@ -49,7 +49,6 @@ public class EdificioControllerCrud {
 		edificioExistente.setEdificio(edificio.getEdificio());
 		edificioExistente.setAula(edificio.getAula());
 		
-		
 		servicio.actualizarEdificio(edificioExistente);
 		return "redirect:/listar/edificios";
 	}
@@ -58,7 +57,7 @@ public class EdificioControllerCrud {
 	public String eliminarEdificio(@PathVariable int id) {
 		servicio.eliminarEdificio(id);
 		
-		return "redirect:/listar/roles";
+		return "redirect:/listar/edificio";
 	}
 	@GetMapping("/aula/{id}")
 	public String buscarPorIDYAulas(Edificio edificio,Model model) {
