@@ -33,6 +33,7 @@ public class ViewRouteHelper {
 	public final static String EDIFICIO_FORM = "edificio/form";
 	public final static String EDIFICIO_EDITAR = "edificio/editar_edificio";
 	public final static String EDIFICIO_AULAS = "edificio/aulaDeEdificio";
+	public final static String EDIFICIOAUDITOR_LISTAR = "edificio/listaAuditorEdificio";
 	
 	//AULA----
 	public final static String AULA_LISTA = "aula/lista";

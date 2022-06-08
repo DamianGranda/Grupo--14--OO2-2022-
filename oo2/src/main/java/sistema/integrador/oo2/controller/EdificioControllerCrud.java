@@ -76,5 +76,12 @@ public class EdificioControllerCrud {
 		return ViewRouteHelper.EDIFICIO_AULAS;
 	}
 	
+	//Auditor....
+    @GetMapping("/listarAuditor/edificio")
+    public String listarEdificioAuditor(Model model) {
+        model.addAttribute("edificio", servicio.listar());
+        return ViewRouteHelper.EDIFICIOAUDITOR_LISTAR;
+    }
+	
 	
 }
