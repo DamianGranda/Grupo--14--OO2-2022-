@@ -66,14 +66,6 @@ public class Espacio implements Serializable {
 		this.fecha = fecha;
 	}
 
-	public char getTurno() {
-		return turno;
-	}
-
-	public void setTurno(char turno) {
-		this.turno = turno;
-	}
-
 	public Aula getAula() {
 		return aula;
 	}
@@ -88,6 +80,18 @@ public class Espacio implements Serializable {
 
 	public void setLibre(boolean libre) {
 		this.libre = libre;
+	}
+
+	public char getTurno() {
+		return turno;
+	}
+
+	public void setTurno(char turno) {
+		this.turno = turno;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

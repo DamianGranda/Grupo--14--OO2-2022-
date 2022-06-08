@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import sistema.integrador.oo2.entities.Aula;
 import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.entities.UserRole;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IAulaService;
 import sistema.integrador.oo2.services.IEdificioService;
 
@@ -28,7 +29,7 @@ public class EdificioControllerCrud {
 	@GetMapping("/listar/edificio")
 	public String listarEdificio(Model model) {
 		model.addAttribute("edificio", servicio.listar());
-		return "edificio/lista";
+		return ViewRouteHelper.EDIFICIO_LISTA;
 	}
 	
 	@GetMapping("/listar/edificio/nuevo")
@@ -39,7 +40,7 @@ public class EdificioControllerCrud {
 		
 	
         
-		return "edificio/form";
+		return ViewRouteHelper.EDIFICIO_FORM;
 	}
 	@PostMapping("/listar/edificio")
 	public String guardarEdificio(@ModelAttribute("edificio") Edificio edificio) {
@@ -49,7 +50,7 @@ public class EdificioControllerCrud {
 	@GetMapping("/listar/edificio/editar/{id}")
 	public String mostrarFormularioDeEditar(@PathVariable int id,Model model) {
 		model.addAttribute("edificio", servicio.obtenerEdificio(id));
-		return "edificio/editar_edificio";//hacer el html de editar
+		return ViewRouteHelper.EDIFICIO_EDITAR;
 	}
 	
 	@PostMapping("/listar/edificio/{id}")
@@ -72,7 +73,7 @@ public class EdificioControllerCrud {
 	@GetMapping("/aula/{id}")
 	public String buscarPorIDYAulas(Edificio edificio,Model model) {
 		model.addAttribute("edificio", servicio.buscarPorIDYAulas(edificio.getId()));
-		return "edificio/aulaDeEdificio";
+		return ViewRouteHelper.EDIFICIO_AULAS;
 	}
 	
 	

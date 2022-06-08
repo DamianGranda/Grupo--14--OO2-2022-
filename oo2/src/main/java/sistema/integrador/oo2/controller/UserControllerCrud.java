@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import sistema.integrador.oo2.entities.User;
 import sistema.integrador.oo2.entities.UserRole;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IUserRoleService;
 import sistema.integrador.oo2.services.IUserService;
 
@@ -32,12 +33,12 @@ public class UserControllerCrud {
 	
 	@GetMapping("/mostrar")
 	public String mostrarVistaAdministrador(Model model) {
-		return "user/ViewAdmin";
+		return ViewRouteHelper.USER_VIEWADMIN;
 	}
 	@GetMapping("/listar")
 	public String listarUsers(Model model) {
 		model.addAttribute("users", servicio.listar());
-		return "user/lista";
+		return ViewRouteHelper.USER_LISTAR;
 	}
 
 	@GetMapping("/listar/nuevo")
@@ -48,7 +49,7 @@ public class UserControllerCrud {
 		List<UserRole> listRole = servicioRole.listar(); 
         model.addAttribute("listRole", listRole); 
 		
-		return "user/form";
+		return ViewRouteHelper.USER_FORM;
 	}
 
 	@PostMapping("/listar")
@@ -63,7 +64,7 @@ public class UserControllerCrud {
 		model.addAttribute("user", servicio.obtenerUserPorId(id));
 		List<UserRole> listRole = servicioRole.listar(); 
         model.addAttribute("listRole", listRole);
-		return "user/editar_user";
+		return ViewRouteHelper.USER_EDITAR;
 	}
 
 	@PostMapping("/listar/{id}")
@@ -97,12 +98,12 @@ public class UserControllerCrud {
 	@GetMapping("/listarAuditor")
 	public String listarUsersAuditor(Model model) {
 		model.addAttribute("users", servicio.listar());
-		return "user/listaAuditor";
+		return ViewRouteHelper.USERAUDITOR_LISTAR;
 	}
 	
 	@GetMapping("/mostrarAuditor")
 	public String mostrarVistaAuditor(Model model) {
-		return "user/ViewAuditor";
+		return ViewRouteHelper.USER_VIEWAUDITOR;
 	}
 	
 }

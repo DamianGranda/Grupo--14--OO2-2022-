@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import sistema.integrador.oo2.entities.UserRole;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IUserRoleService;
 
 //ADMIN.....
@@ -23,14 +24,14 @@ public class UserRoleControllerCrud {
 	@GetMapping("/listar/roles")
 	public String listarRoles(Model model) {
 		model.addAttribute("userRoles", servicio.listar());
-		return "userRole/lista";
+		return ViewRouteHelper.USERROLE_LISTAR;
 	}
 	
 	@GetMapping("/listar/roles/nuevo")
 	public String mostrarFormularioDeRegistrerUserRole(Model model) {
 		UserRole userRole=new UserRole();
 		model.addAttribute("userRole", userRole);
-		return "userRole/form";
+		return ViewRouteHelper.USERROLE_FORM;
 	}
 	@PostMapping("/listar/roles")
 	public String guardarUserRole(@ModelAttribute("userRole") UserRole userRole) {
@@ -40,7 +41,7 @@ public class UserRoleControllerCrud {
 	@GetMapping("/listar/roles/editar/{id}")
 	public String mostrarFormularioDeEditar(@PathVariable Long id,Model model) {
 		model.addAttribute("userRole", servicio.obtenerUserRolePorId(id));
-		return "userRole/editar_userRole";//hacer el html de editar
+		return ViewRouteHelper.USERROLE_EDITAR;
 	}
 	
 	@PostMapping("/listar/roles/{id}")
@@ -66,7 +67,7 @@ public class UserRoleControllerCrud {
 	@GetMapping("/listarAuditor/roles")
 	public String listarRolesAuditor(Model model) {
 		model.addAttribute("userRoles", servicio.listar());
-		return "userRole/listaAuditor";
+		return ViewRouteHelper.USERROLEAUDITOR_LISTAR;
 	}
 	
 	
