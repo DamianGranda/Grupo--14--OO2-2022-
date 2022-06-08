@@ -25,7 +25,7 @@ public class EspacioControllerCrud {
 	@GetMapping("/listar/espacio")
 	public String listarEspacio(Model model) {
 		model.addAttribute("espacio", servicio.listar());
-		return "espacio/lista";
+		return "espacio/form";
 	}
 	
 	@GetMapping("/listar/espacio/nuevo")
@@ -69,10 +69,15 @@ public class EspacioControllerCrud {
 		return "redirect:/listar/espacio";
 	}
 	
-	/*------------------- ACA NO SE COMO TENDRIAMOS QUE HACER PARA HACER EL GETMAPPING ----
+	@GetMapping("/listar/edificio/{aula}?{turno}?{fecha}")
 	public Espacio buscarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula) {
-		return repositorio.buscarPorFechaTurnoAula(fecha,turno,aula);
-		
-	}*/
-
+		return servicio.buscarPorFechaTurnoAula(fecha, turno, aula); 
+	}
+	
+	/*
+	@PostMapping("")
+	public int agregarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula, boolean libre) {
+		return repositorio.agregarPorFechaTurnoAulaLibre(fecha, turno, aula, libre);
+	}
+	*/
 }

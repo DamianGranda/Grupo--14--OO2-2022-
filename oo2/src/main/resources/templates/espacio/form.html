@@ -10,18 +10,49 @@
 </head>
 <body>
 	<div class="container mt-4">
+	<div class="row">
+		<div class="col-sm-6">
+			<!-- form action GET -->
+			<div class="card">
+				<div class="card-header">
+					<h3>Buscar Espacio</h3>
+				</div>
+				<div class="card-body">
+						<div class="form-group">
+							<label>Fecha</label> 
+							<input type="date" class="form-control" />
+						</div>
+						
+					<!--   <div class="form-group">
+							<label>Aula</label> 
+							<select th:field="*{aula}">
+  							<option th:value="${id_aula}" th:selected="${1}"></option>
+  							</select>
+						</div>  -->
+						
+						<div class="form-group">
+							<label>Turno</label> 
+							<select th:field="*{turno}">
+  							<option th:value="'M'">Mañana</option>
+ 							 <option th:value="'N'" selected>Noche</option>
+							</select>
+						</div>
+						<div class="card-footer">
+						<input type="submit" value="Buscar" class="btn btn-primary">
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="col-sm-6">
 			<form th:action="@{/listar/espacio}" th:object=${espacio} method="POST">
 				<div class="card">
 					<div class="card-header">
 						<h3>Modulo Espacio</h3>
 					</div>
-					<div class="card-body">
-					
 						<div class="card-body">
 						<div class="form-group">
 							<label>NOMBRE DEL ESPACIO</label> 
-							<input th:field="*{nombre}" type="text"
+							<input type="text"
 								class="form-control" />
 						</div>
 						</div>
@@ -30,6 +61,7 @@
 					</div>
 				</div>
 			</form>
+		</div>
 		</div>
 	</div>
 	<!-- Bootstrap core JavaScript -->

@@ -13,4 +13,5 @@ public interface IEspacioService {
 	public Espacio actualizarEspacio(Espacio espacio);
 	public void eliminarEspacio(int id);
 	public Espacio buscarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula);
+	public int agregarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula, boolean libre);
 }

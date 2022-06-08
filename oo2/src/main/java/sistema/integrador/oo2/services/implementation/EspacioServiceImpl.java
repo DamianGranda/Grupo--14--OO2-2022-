@@ -48,7 +48,16 @@ public class EspacioServiceImpl implements IEspacioService{
 
 	@Override
 	public Espacio buscarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula) {
-		return repositorio.buscarPorFechaTurnoAula(fecha,turno,aula);
-		
+		List<Espacio> list = (List<Espacio>) repositorio.findAll();
+		Espacio aux = null;
+		for(Espacio esp : list) {
+			if(esp.getFecha().isEqual(fecha) && esp.getTurno() == turno && esp.getAula().equals(aula)) aux = esp;
+		}
+		return aux;
+	}
+
+	@Override
+	public int agregarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula, boolean libre) {
+		return repositorio.agregarPorFechaTurnoAulaLibre(fecha, turno, aula, libre);
 	}
 }
