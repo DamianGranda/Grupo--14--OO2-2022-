@@ -69,7 +69,7 @@ public class EspacioControllerCrud {
 		return "redirect:/listar/espacio";
 	}
 	
-	@GetMapping("/listar/edificio/{aula}?{turno}?{fecha}")
+	@GetMapping("/listar/espacio/{fecha}?{turno}?{aula}")
 	public Espacio buscarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula) {
 		return servicio.buscarPorFechaTurnoAula(fecha, turno, aula); 
 	}
