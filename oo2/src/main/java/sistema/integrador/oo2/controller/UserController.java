@@ -33,7 +33,7 @@ public class UserController {
 
 		logoutHandler.logout(request, null, null);
 
-		return "redirect:/login";
+		return ViewRouteHelper.USER_LOGOUT;
 		}
 	
 	@GetMapping("/loginsuccess")
