@@ -29,9 +29,9 @@ public class AulaControllerCrud {
 	private IAulaService serviceAula;
 	
 	
-	// Trae a la clase por Id y devuelve dependiendo la instancia que sea
+	
     @GetMapping("/traer/aula/{id}")
-    public String traer(Aula aula, Model model) {// Relaciona el Id con el parametro classroom 
+    public String traer(Aula aula, Model model) { 
     	
         if(serviceAula.obtenerAula(aula.getId()) instanceof Tradicional)
         {
