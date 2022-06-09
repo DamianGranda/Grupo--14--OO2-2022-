@@ -36,11 +36,6 @@ public class UserController {
 		return "redirect:/login";
 		}
 	
-	
-	//public String logout(Model model) {
-		//return ViewRouteHelper.USER_LOGOUT;
-	//}
-	
 	@GetMapping("/loginsuccess")
 	public RedirectView loginCheck() {
 		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();

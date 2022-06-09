@@ -74,10 +74,4 @@ public class EspacioControllerCrud {
 		return servicio.buscarPorFechaTurnoAula(fecha, turno, aula); 
 	}
 	
-	/*
-	@PostMapping("")
-	public int agregarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula, boolean libre) {
-		return repositorio.agregarPorFechaTurnoAulaLibre(fecha, turno, aula, libre);
-	}
-	*/
 }
