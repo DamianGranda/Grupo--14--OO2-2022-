@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sistema.integrador.oo2.entities.User;
+import sistema.integrador.oo2.repositories.IUserRepository;
 import sistema.integrador.oo2.repositories.IUserRepositoryCRUD;
 import sistema.integrador.oo2.services.IUserService;
 
@@ -13,7 +14,7 @@ import sistema.integrador.oo2.services.IUserService;
 public class UserServiceimpl implements IUserService {
 
 	@Autowired
-	private IUserRepositoryCRUD repositorio;
+	private IUserRepository repositorio;
 
 	@Override
 	public List<User> listar() {
