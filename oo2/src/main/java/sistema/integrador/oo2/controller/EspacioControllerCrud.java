@@ -25,7 +25,7 @@ public class EspacioControllerCrud {
 	@GetMapping("/listar/espacio")
 	public String listarEspacio(Model model) {
 		model.addAttribute("espacio", servicio.listar());
-		return "espacio/form";
+		return "espacio/mostrar";
 	}
 	
 	@GetMapping("/listar/espacio/nuevo")
