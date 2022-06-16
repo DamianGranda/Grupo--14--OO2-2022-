@@ -10,28 +10,36 @@
 </head>
 <body>
 	<div class="container mt-4">
-	
+	<a th:href="@{/espacio/nuevo/agregar}" class="btn btn-primary">NUEVO</a>
+	<br>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>FECHA</th>
 				    <th>TURNO</th>
 					<th>LIBRE</th>
+					<th>NUMERO DE AULA</th>
+					<td>
 					
-					
+					</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="espacio:${espacio}">
-					<td th:text="${espacio.fecha}"></td>
-					<td th:text="${espacio.turno}"></td>
-					<td th:text="${espacio.libre}"></td>
-				
-			
-				
-				</tr>
-			</tbody>
+								<tr th:each="espacio: ${lstEspacios}">
+								<td><span th:text="${espacio.fecha}" /></td>
+								<td><span th:text="${espacio.turno}" /></td>
+								<td><span th:text="${espacio.libre}" /></td>
+								<td><span th:text="${espacio.aula.numero}" /></td>
+								<td>
+								<a th:href="@{/espacio/editar/{id}(id=${espacio.id})}" class="btn btn-info">Editar</a>
+								<a th:href="@{/espacio/eliminar/{id}(id=${espacio.id})}" class="btn btn-danger">Eliminar</a>
+								</td>
+								</tr>
+							</tbody>
 		</table>
+		<div class="alert warning-alert" th:if="${ya_existe}">
+  				<h3 class="letraletra">El espacio ya se encuentra asignado, intenté con otro!</h3>
+					</div>
 	</div>
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>

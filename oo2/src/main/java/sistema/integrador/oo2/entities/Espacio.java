@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 
 @Entity
@@ -28,6 +30,7 @@ public class Espacio implements Serializable {
 	private int id;
 	
 	@Column(name="fecha",nullable=false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	
 	@Column(name="turno",nullable=false)

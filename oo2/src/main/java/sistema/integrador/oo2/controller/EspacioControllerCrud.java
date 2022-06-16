@@ -1,77 +1,81 @@
 package sistema.integrador.oo2.controller;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
-import sistema.integrador.oo2.entities.Aula;
-import sistema.integrador.oo2.entities.Edificio;
+
 import sistema.integrador.oo2.entities.Espacio;
+import sistema.integrador.oo2.services.IAulaService;
 import sistema.integrador.oo2.services.IEspacioService;
 
+
+
 @Controller
+@RequestMapping("/espacio")
 public class EspacioControllerCrud {
+
+	@Autowired
+	
+	private IEspacioService espacioService;
 	
 	@Autowired
-	private IEspacioService servicio;
 	
+	private IAulaService aulaService;
 	
-	@GetMapping("/listar/espacio")
-	public String listarEspacio(Model model) {
-		model.addAttribute("espacio", servicio.listar());
-		return "espacio/mostrar";
+	@GetMapping("/admin/listar")
+	public ModelAndView listar() {
+
+		ModelAndView mAV = new ModelAndView("espacio/mostrar");
+		mAV.addObject("lstEspacios", espacioService.listar());
+		mAV.addObject("espacio", new Espacio());
+		return mAV;
+	}
+	@GetMapping("/nuevo/agregar") 
+	public ModelAndView newCreate() {
+		ModelAndView mAV = new ModelAndView("espacio/form");
+		mAV.addObject("lstAulas", aulaService.listar());
+		mAV.addObject("espacio", new Espacio());
+		return mAV;
+	}
+	@PostMapping("/crear") // CU 4
+	public RedirectView create_es(@ModelAttribute("espacio") Espacio espacio, RedirectAttributes redirectAttributes) {
+		try {
+			espacioService.agregar(espacio.getFecha(), espacio.getTurno(), espacio.getAula(), espacio.isLibre());
+		} catch (Exception e) {
+			redirectAttributes.addFlashAttribute("ya_existe", true);
+			e.printStackTrace();
+		}
+		redirectAttributes.addFlashAttribute("edificio_agreagdo", true);
+		return new RedirectView("/espacio/admin/listar");
 	}
 	
-	@GetMapping("/listar/espacio/nuevo")
-	public String mostrarFormularioDeRegistrerEspacio(Model model) {
-	
-		Espacio espacio =new Espacio();
-		model.addAttribute("espacio", espacio);
-		
-	
-        
-		return "espacio/form";
-	}
-	@PostMapping("/listar/espacio")
-	public String guardarEspacio(@ModelAttribute("espacio") Espacio espacio) {
-		servicio.guardarEspacio(espacio);
-		return "redirect:/listar/espacio";
-	}
-	@GetMapping("/listar/espacio/editar/{id}")
-	public String mostrarFormularioDeEditar(@PathVariable int id,Model model) {
-		model.addAttribute("espacio", servicio.obtenerEspacio(id));
-		return "espacio/editar_espacio";//hacer el html de editar
+	@GetMapping("/editar/{id}") 
+	public ModelAndView editar_e(@PathVariable("id") int id) {
+		ModelAndView mAV = new ModelAndView("espacio/editar_espacio");
+		mAV.addObject("espacio", espacioService.findById(id));
+		mAV.addObject("lstAulas", aulaService.listar());
+		return mAV;
+	} 
+	@PostMapping("/edit") 
+	public RedirectView edit_suss(@ModelAttribute("espacio") Espacio espacio, RedirectAttributes redirectAttributes) {
+		espacioService.insertOrUpdate(espacio);
+		redirectAttributes.addFlashAttribute("espacio_editado", true);
+		return new RedirectView("/espacio/admin/listar");
 	}
 	
-	@PostMapping("/listar/espacio/{id}")
-	public String actualizarEspacio(@PathVariable int id, @ModelAttribute("espacio") Espacio espacio) {
-		Espacio espacioExistente=servicio.obtenerEspacio(id);
-		espacioExistente.setId(id);
-		espacioExistente.setFecha(espacio.getFecha());
-		espacioExistente.setAula(espacio.getAula());
-		espacioExistente.setTurno(espacio.getTurno());
-		espacioExistente.setLibre(espacio.isLibre());
-		
-		servicio.actualizarEspacio(espacioExistente);
-		return "redirect:/listar/espacio";
+	@GetMapping("/eliminar/{id}") 
+	public RedirectView eliminar(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+		espacioService.remove(id);
+		redirectAttributes.addFlashAttribute("edificio_borrado", true);
+		return new RedirectView("/espacio/admin/listar");
 	}
-	
-	@GetMapping("/listar/espacio/{id}")
-	public String eliminarEspacio(@PathVariable int id) {
-		servicio.eliminarEspacio(id);
-		
-		return "redirect:/listar/espacio";
-	}
-	
-	@GetMapping("/listar/espacio/{fecha}?{turno}")
-	public Espacio buscarPorFechaTurnoAula(LocalDate fecha, char turno, Aula aula) {
-		return servicio.buscarPorFechaTurnoAula(fecha, turno, aula); 
-	}
-	
 }
