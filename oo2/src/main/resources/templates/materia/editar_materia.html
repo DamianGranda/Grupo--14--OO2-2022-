@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UNLa</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous"/>
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form action="#" th:action="@{/materia/edit}" th:object=${materia} method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h3>Editar Materia</h3>
+					</div>
+					<div class="card-body">
+					
+						<div class="card-body">
+							<div class="form-group">
+							Nombre: <input type="text" name="materia" placeholder="materia"
+								required th:field="*{materia}" not-null="true" class="form-control"> <label
+								for="materia"></label> 
+						</div>
+							<div class="form-group">
+							Codigo: <input type="number" name="codMateria"
+								placeholder="codigo" th:field="*{codMateria}" not-null="true" class="form-control">
+							<label for="codigo"></label> 
+							<div class="form-group">
+							<hr>
+							<p>
+								Carrera: <select th:field="*{carrera}" class="form-control">
+                                    <option th:each="c : ${lstCarreras}"
+                                      th:value="${c.id}" 
+                                      th:text=" ${c.id} + '-' + ${c.nombre} "/>
+                              </select>
+							</p>
+							<hr>
+						</div>
+							
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

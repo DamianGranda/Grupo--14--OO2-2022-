@@ -12,7 +12,8 @@
 	<div class="container mt-4">
 	<a href="#" class="btn btn-primary">NUEVO</a>
 	<a th:href="@{/logout}" class="btn btn-primary">SALIR</a>
-	<br>
+	<br/>
+	<br/>
 		<table class="table">
 			<thead>
 				<tr>
@@ -32,12 +33,15 @@
 								<td><span th:text="${materia.codMateria}" /></td>
 								<td><span th:text="${materia.carrera.nombre}" /></td>
 								<td>
-								<a href="#" class="btn btn-info">Editar</a>
-								<a href="#" class="btn btn-danger">Eliminar</a>
+								<a th:href="@{/materia/editar/{id}(id=${materia.id})}" class="btn btn-info">Editar</a>
+								<a th:href="@{/materia/eliminar/{id}(id=${materia.id})}" class="btn btn-danger">Eliminar</a>
 								</td>
 								</tr>
 							</tbody>
 		</table>
+		<br/>
+		<br/>
+		<a th:href="@{/admin/mostrar}" class="btn btn-primary">VOLVER A INICIO</a> 
 	</div>
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>
