@@ -191,10 +191,14 @@ insert into user_role values(1,now(),'ROLE_ADMIN',now()) ,(2,now(),'ROLE_AUDITOR
 insert into user values(1,'userApellido',now(),123,'wu342u@gmail.com',1,'userNombre','$2a$10$EjV1PvKuT/3ityMJv0mTwuvnZXnwVrqgietvW0Mw0OfqtWZlf6Zvm','DNI',now(),'user',1);
 insert into user values(2,'userApellido2',now(),123,'wu1342u@gmail.com',1,'userNombre2','$2a$10$EjV1PvKuT/3ityMJv0mTwuvnZXnwVrqgietvW0Mw0OfqtWZlf6Zvm','DNI',now(),'user2',2);
 
-insert into edificio values(1,'herandez');
+insert into edificio values(1,'Hernandez');
+insert into edificio values(2,'Marechal');
+insert into edificio values(3,'Ortiz');
+
 insert into aula values(1,1,1);
 insert into aula values(2,2,1);
-insert into aula values(3,1,3);
+insert into aula values(3,1,2);
+insert into aula values(4,4,3);
 
 insert into tradicional values(10,'tiza',1,1);
 insert into laboratorio values(10,10,2);
@@ -202,12 +206,16 @@ insert into laboratorio values(10,10,2);
 insert into espacio values(1,now(),true,'M',1);
 insert into espacio values(2,now(),false,'T',2);
 
-drop table espacio;
+insert into departamento values(1,'Departamento desarrollo productivo y tecnologico');
+insert into carrera values(1,'Licenciatura en Sistemas',1);
+insert into materia values(1,1,'Orientacion a Objetos 2',1);
 
+select *from departamento;
 select *from espacio;
+select *from carrera;
 select *from edificio;
-select *from aula;
-select *from tradicional;
-select *from laboratorio;
+select * from aula;
+select * from tradicional;
+select * from laboratorio;
 select * from user;
 select * from user_role;

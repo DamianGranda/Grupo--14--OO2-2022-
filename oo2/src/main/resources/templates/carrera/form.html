@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UNLa</title>
+<link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="#" th:action="@{/carrera/crear}" th:object=${carrera}
+                    method="POST">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>MODEL CARRERA</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                            <label>NOMBRE</label> 
+                            
+                            <input th:field="*{nombre}" type="text"
+                                class="form-control" />
+                        </div>
+                    <div class="form-group">
+                            <hr>
+                            <p>
+                                Departamento: <select th:field="*{departamento}" class="df-form">
+                                    <option th:each="d : ${lstDepartamento}"
+                                      th:value="${d.id}" 
+                                      th:text=" ${d.nombre}"/>
+                              </select>
+
+                            </p>
+                            <hr>
+                        </div>
+                    
+                    
+                    </div>
+                    
+                    
+                    <br>
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

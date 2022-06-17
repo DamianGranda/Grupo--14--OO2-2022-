@@ -25,8 +25,8 @@ public class Carrera implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "carrera", nullable=false, length=45)
-	private String carrera;
+	@Column(name = "nombre", nullable=false, length=45)
+	private String nombre;
 	
 	@ManyToOne()
 	@JoinColumn(name="id_departamento", nullable=false)
@@ -42,12 +42,12 @@ public class Carrera implements Serializable{
 		this.id = id;
 	}
 
-	public String getCarrera() {
-		return carrera;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setCarrera(String carrera) {
-		this.carrera = carrera;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public Departamento getDepartamento() {
@@ -58,10 +58,10 @@ public class Carrera implements Serializable{
 		this.departamento = departamento;
 	}
 
-	public Carrera(int id, String carrera, Departamento departamento) {
+	public Carrera(int id, String nombre, Departamento departamento) {
 		super();
 		this.id = id; //no autoincremental
-		this.carrera = carrera;
+		this.nombre = nombre;
 		this.departamento = departamento;
 	}
 
