@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UNLa</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous"/>
+</head>
+<body>
+	<div class="container mt-4">
+	<a th:href="@{/departamento/nuevo/agregar}" class="btn btn-primary">NUEVO</a>
+	<a th:href="@{/logout}"class="btn btn-primary">SALIR</a>
+		<br> <br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NOMBRE</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="departamento: ${lstDepartamentos}">
+					<td><span th:text="${departamento.id}" /></td>
+					<td><span th:text="${departamento.nombre}" /></td>
+					<td>
+					<a th:href="@{/departamento/editar/{id}(id=${departamento.id})}" class="btn btn-info">Editar</a>
+					<a th:href="@{/departamento/eliminar/{id}(id=${departamento.id})}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	    <script src="/vendor/jquery/jquery.min.js"></script>
+	    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

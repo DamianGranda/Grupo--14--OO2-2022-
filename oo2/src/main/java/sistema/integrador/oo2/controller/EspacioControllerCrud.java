@@ -12,9 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-
+import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.entities.Espacio;
 import sistema.integrador.oo2.services.IAulaService;
+import sistema.integrador.oo2.services.IEdificioService;
 import sistema.integrador.oo2.services.IEspacioService;
 
 
@@ -31,19 +32,26 @@ public class EspacioControllerCrud {
 	
 	private IAulaService aulaService;
 	
+	@Autowired
+	private IEdificioService edificioService;
+	
 	@GetMapping("/admin/listar")
 	public ModelAndView listar() {
 
 		ModelAndView mAV = new ModelAndView("espacio/mostrar");
 		mAV.addObject("lstEspacios", espacioService.listar());
 		mAV.addObject("espacio", new Espacio());
+		//mAV.addObject("edificio", new Edificio());
 		return mAV;
 	}
 	@GetMapping("/nuevo/agregar") 
-	public ModelAndView newCreate() {
+	public ModelAndView newCreate(Edificio edificio) {
 		ModelAndView mAV = new ModelAndView("espacio/form");
 		mAV.addObject("lstAulas", aulaService.listar());
 		mAV.addObject("espacio", new Espacio());
+		mAV.addObject("lstEdificio",edificioService.listar());
+		
+		mAV.addObject("edificio", edificioService.buscarPorIDYAulas(edificio.getId()));
 		return mAV;
 	}
 	@PostMapping("/crear") // CU 4

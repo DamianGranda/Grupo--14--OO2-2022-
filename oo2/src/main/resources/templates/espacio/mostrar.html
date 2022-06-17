@@ -18,6 +18,7 @@
 					<th>FECHA</th>
 				    <th>TURNO</th>
 					<th>LIBRE</th>
+					<th>EDIFICIO</th>
 					<th>NUMERO DE AULA</th>
 					<td>
 					
@@ -29,6 +30,7 @@
 								<td><span th:text="${espacio.fecha}" /></td>
 								<td><span th:text="${espacio.turno}" /></td>
 								<td><span th:text="${espacio.libre}" /></td>
+								<td><span th:text="${espacio.aula.edificio.nombre}" /></td>
 								<td><span th:text="${espacio.aula.numero}" /></td>
 								<td>
 								<a th:href="@{/espacio/editar/{id}(id=${espacio.id})}" class="btn btn-info">Editar</a>

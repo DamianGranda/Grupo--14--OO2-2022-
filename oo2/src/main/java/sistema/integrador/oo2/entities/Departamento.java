@@ -21,15 +21,15 @@ public class Departamento implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="departamento", nullable=true,length=30)
-	private String departamento;
+	@Column(name="nombre", nullable=true,length=60)
+	private String nombre;
 	
 	public Departamento() {}
 	
-	public Departamento(int id, String departamento) {
+	public Departamento(int id, String nombre) {
 		super();
 		this.id = id;
-		this.departamento = departamento;
+		this.nombre = nombre;
 	}
 
 	public int getId() {
@@ -40,12 +40,12 @@ public class Departamento implements Serializable{
 		this.id = id;
 	}
 
-	public String getDepartamento() {
-		return departamento;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 }

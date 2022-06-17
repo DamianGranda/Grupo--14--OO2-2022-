@@ -38,13 +38,15 @@
 								<option value="N">NOCHE</option>
 							</select>
 						</div>
+						
 							<div class="form-group">
 							<hr>
 							<p>
-								Aula: <select th:field="*{aula}" class="df-form">
-									<option th:each="a : ${lstAulas}" th:value="${a.id}"
-										th:text="${a.numero}" />
-								</select>
+								Edificio-Aula: <select th:field="*{aula}" class="df-form">
+                                    <option th:each="a : ${lstAulas}"
+                                      th:value="${a.id}" 
+                                      th:text=" ${a.edificio.nombre} + '-' + ${a.numero} "/>
+                              </select>
 
 							</p>
 							<hr>
