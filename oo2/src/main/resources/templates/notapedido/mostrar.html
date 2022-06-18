@@ -10,7 +10,8 @@
 </head>
 <body>
 	<div class="container mt-4">
-	<a href="#" class="btn btn-primary">NUEVO</a>
+	<a th:href="@{/notaPedido/nuevo/final}" class="btn btn-primary">AGREGAR PEDIDO FINAL</a>
+	
 	<a th:href="@{/logout}" class="btn btn-primary">SALIR</a>
 	<br/>
 	<br/>
@@ -24,6 +25,7 @@
 					<th>CANTIDAD ESTUDIANTES</th>
 					<th>MATERIA</th>
 					<th>OBSERVACIONES</th>
+					
 					<td>
 					
 					</td>
@@ -38,6 +40,7 @@
 								<td><span th:text="${pedido.cantEstudiantes}" /></td>
 								<td><span th:text="${pedido.materia.nombre}" /></td>
 								<td><span th:text="${pedido.observaciones}" /></td>
+								
 <!-- 								<td> -->
 <!-- 								<a th:href="@{/materia/editar/{id}(id=${materia.id})}" class="btn btn-info">Editar</a> -->
 <!-- 								<a th:href="@{/materia/eliminar/{id}(id=${materia.id})}" class="btn btn-danger">Eliminar</a> -->

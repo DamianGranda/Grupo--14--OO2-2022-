@@ -17,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 
 @Entity
@@ -24,7 +26,7 @@ import javax.persistence.Table;
 @Inheritance(
 	    strategy = InheritanceType.JOINED
 	)
-public abstract class NotaPedido implements Serializable{
+public  class NotaPedido implements Serializable{
 	
 	/**
 	 * 
@@ -33,28 +35,29 @@ public abstract class NotaPedido implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected int id;
+	private int id;
 	
 	@Column(name="fecha", nullable=false)
-	protected LocalDate fecha;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fecha;
 	
 	@Column(name="turno", nullable=false)
-	protected char turno;
+	private char turno;
 	
 	@ManyToOne
 	@JoinColumn(name="idAula", nullable=false)
-	protected Aula aula;
+	private Aula aula;
 	
 	@Column(name="cant_estudiantes", nullable=false)
-	protected int cantEstudiantes;
+	private int cantEstudiantes;
 	
 	@ManyToOne
 	@JoinColumn(name="id_materia", nullable=false)
-	protected Materia materia;
+	private Materia materia;
 	
 	@Column(name="observaciones", nullable=false)
-	protected String observaciones;
-	
+	private String observaciones;
+
 	public NotaPedido() {}
 	
 	public NotaPedido(LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia,

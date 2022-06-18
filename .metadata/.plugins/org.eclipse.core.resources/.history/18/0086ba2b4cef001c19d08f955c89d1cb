@@ -1,0 +1,5 @@
+package sistema.integrador.oo2.services.implementation;
+
+public class ProfesorServiceImpl {
+
+}

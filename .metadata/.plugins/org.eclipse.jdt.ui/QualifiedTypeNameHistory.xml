@@ -8,4 +8,13 @@
     <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.services.IProfesorService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.repositories.IProfesorRepositoryCRUD"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.entities.Profesor"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.repositories.IProfesorRepository"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.entities.Final"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.services.IAulaService"/>
+    <fullyQualifiedTypeName name="sistema.integrador.oo2.services.IMateriaService"/>
 </qualifiedTypeNameHistroy>

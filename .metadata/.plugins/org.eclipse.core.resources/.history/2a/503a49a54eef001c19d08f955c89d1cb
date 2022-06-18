@@ -1,0 +1,38 @@
+package sistema.integrador.oo2.services.implementation;
+
+import java.util.List;
+
+
+import sistema.integrador.oo2.entities.Profesor;
+import sistema.integrador.oo2.services.IProfesorService;
+
+
+public class ProfesorServiceImpl implements IProfesorService{
+
+	@Override
+	public List<Profesor> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean insertOrUpdate(Profesor profesor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Profesor findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean remove(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+}

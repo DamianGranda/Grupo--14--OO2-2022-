@@ -1,0 +1,53 @@
+package sistema.integrador.oo2.services.implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.grupo23.Grupo230022022.repositories.IProfesorRepository;
+
+import sistema.integrador.oo2.entities.Profesor;
+import sistema.integrador.oo2.repositories.IProfesorRepositoryCRUD;
+import sistema.integrador.oo2.services.IProfesorService;
+
+public class ProfesorServiceImpl implements IProfesorService{
+
+	@Autowired
+	//@Qualifier("profesorRepository")
+	private IProfesorRepositoryCRUD profesorRepository;
+
+	@Override
+	public List<Profesor> listar() {
+		// TODO Auto-generated method stub
+		return profesorRepository.findAll();
+	}
+
+	@Override
+	public boolean insertOrUpdate(Profesor profesor) {
+		// TODO Auto-generated method stub
+		try {
+			profesorRepository.save(profesor);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}	}
+
+	@Override
+	public Profesor findById(int id) {
+		// TODO Auto-generated method stub
+		return profesorRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public boolean remove(int id) {
+		// TODO Auto-generated method stub
+		try {
+			profesorRepository.deleteById(id);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+
+
+}

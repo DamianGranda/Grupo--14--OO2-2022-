@@ -16,14 +16,7 @@ import javax.persistence.Id;
 @Entity
 @Table(name="curso")
 public class Curso extends NotaPedido implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected int id;
+
 	
 	@Column(name="cod_curso", nullable=true, length=45)
 	private String codCurso;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UNLa</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous"/>
+</head>
+<body>
+	<div class="container mt-4">
+	<a href="/notapedido/elegir" class="btn btn-primary">NUEVO</a>
+	<a th:href="@{/logout}" class="btn btn-primary">SALIR</a>
+	<br/>
+	<br/>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+				    <th>FECHA</th>
+					<th>TURNO</th>
+					<th>AULA</th>
+					<th>CANTIDAD ESTUDIANTES</th>
+					<th>MATERIA</th>
+					<th>OBSERVACIONES</th>
+					<td>
+					
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+								<tr th:each="pedido: ${lstPedidos}">
+								<td><span th:text="${pedido.id}" /></td>
+								<td><span th:text="${pedido.fecha}" /></td>
+								<td><span th:text="${pedido.turno}" /></td>
+								<td><span th:text="${pedido.aula.edificio.nombre} + '-' + ${pedido.aula.numero}"/></td>
+								<td><span th:text="${pedido.cantEstudiantes}" /></td>
+								<td><span th:text="${pedido.materia.nombre}" /></td>
+								<td><span th:text="${pedido.observaciones}" /></td>
+<!-- 								<td> -->
+<!-- 								<a th:href="@{/materia/editar/{id}(id=${materia.id})}" class="btn btn-info">Editar</a> -->
+<!-- 								<a th:href="@{/materia/eliminar/{id}(id=${materia.id})}" class="btn btn-danger">Eliminar</a> -->
+<!-- 								</td> -->
+
+								</tr>
+							</tbody>
+		</table>
+		<br/>
+		<br/>
+		<a th:href="@{/admin/mostrar}" class="btn btn-primary">VOLVER A INICIO</a> 
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	    <script src="/vendor/jquery/jquery.min.js"></script>
+	    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

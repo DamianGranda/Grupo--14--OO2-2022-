@@ -19,5 +19,29 @@ public class NotaPedidoServiceImpl implements INotaPedidoService {
 	public List<NotaPedido> listar() {
 		return notaPedidoRepository.findAll();
 	}
+	@Override
+	public boolean insertOrUpdate(NotaPedido notaPedido) {
+		try {
+			notaPedidoRepository.save(notaPedido);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public NotaPedido findById(int id) {
+		return notaPedidoRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public boolean remove(int id) {
+		try {
+			notaPedidoRepository.deleteById(id);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
 
 }
