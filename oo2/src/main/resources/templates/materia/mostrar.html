@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container mt-4">
-	<a href="#" class="btn btn-primary">NUEVO</a>
+	<a th:href="@{/materia/nuevo/agregar}" class="btn btn-primary">NUEVO</a>
 	<a th:href="@{/logout}" class="btn btn-primary">SALIR</a>
 	<br/>
 	<br/>
@@ -29,7 +29,7 @@
 			<tbody>
 								<tr th:each="materia: ${lstMaterias}">
 								<td><span th:text="${materia.id}" /></td>
-								<td><span th:text="${materia.materia}" /></td>
+								<td><span th:text="${materia.nombre}" /></td>
 								<td><span th:text="${materia.codMateria}" /></td>
 								<td><span th:text="${materia.carrera.nombre}" /></td>
 								<td>

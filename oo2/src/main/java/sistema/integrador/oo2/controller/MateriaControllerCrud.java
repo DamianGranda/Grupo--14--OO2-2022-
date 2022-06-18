@@ -11,8 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-
+import sistema.integrador.oo2.entities.Carrera;
 import sistema.integrador.oo2.entities.Materia;
+import sistema.integrador.oo2.services.ICarreraService;
+import sistema.integrador.oo2.services.IMateriaService;
 import sistema.integrador.oo2.services.implementation.CarreraServiceImpl;
 import sistema.integrador.oo2.services.implementation.MateriaServiceImpl;
 
@@ -21,10 +23,10 @@ import sistema.integrador.oo2.services.implementation.MateriaServiceImpl;
 public class MateriaControllerCrud {
 	
 	@Autowired
-	public MateriaServiceImpl service;
+	private IMateriaService service;
 	
 	@Autowired
-	public CarreraServiceImpl carreraService;
+	private ICarreraService carreraService;
 	
 	
 	@GetMapping("/admin/listar")
@@ -35,6 +37,22 @@ public class MateriaControllerCrud {
 
 		return mAV;
 	}
+	
+	@GetMapping("/nuevo/agregar") 
+	public ModelAndView newCreate() { 
+		ModelAndView mAV = new ModelAndView("materia/form");
+		mAV.addObject("lstMateria", service.listar());
+		mAV.addObject("lstCarrera", carreraService.listar());
+		mAV.addObject("materia", new Materia());
+		return mAV;
+	}
+	@PostMapping("/crear")
+	public RedirectView create_dep(@ModelAttribute("materia") Materia materia, RedirectAttributes redirectAttributes) {
+		service.insertOrUpdate(materia);
+		redirectAttributes.addFlashAttribute("materia_agreagdo", true);
+		return new RedirectView("/materia/admin/listar");
+	}
+	
 	
 	@GetMapping("/editar/{id}") 
 	public ModelAndView editar_e(@PathVariable("id") int id) {

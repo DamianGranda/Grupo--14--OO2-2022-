@@ -28,8 +28,8 @@ public class Materia implements Serializable{
 	
 	@Column(name = "cod_materia", nullable = false)
 	private int codMateria;
-	@Column(name = "materia", nullable = false)
-	private String materia;
+	@Column(name = "nombre", nullable = false)
+	private String nombre;
 	
 	@ManyToOne
 	@JoinColumn(name="id_carrera", nullable=false)
@@ -53,12 +53,12 @@ public class Materia implements Serializable{
 		this.codMateria = codMateria;
 	}
 
-	public String getMateria() {
-		return materia;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setMateria(String materia) {
-		this.materia = materia;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public Carrera getCarrera() {
@@ -69,11 +69,11 @@ public class Materia implements Serializable{
 		this.carrera = carrera;
 	}
 
-	public Materia(int id, int codMateria, String materia, Carrera carrera) {
+	public Materia(int id, int codMateria, String nombre, Carrera carrera) {
 		super();
 		this.id = id; //no autoincremental
 		this.codMateria = codMateria;
-		this.materia = materia;
+		this.nombre = nombre;
 		this.carrera = carrera;
 	}
 
