@@ -18,17 +18,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Final extends NotaPedido implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column(name="fecha_examen", nullable=false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 
 	private LocalDate fechaExamen;
 	
 	public Final() {}
-	public Final(LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			LocalDate fechaExamen) {
-		super(fecha, turno, aula, cantEstudiantes, materia, observaciones);
+	
+	
+
+	public Final(int id, LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia,
+			String observaciones, boolean estado, LocalDate fechaExamen) {
+		super(id, fecha, turno, aula, cantEstudiantes, materia, observaciones, estado);
 		this.fechaExamen = fechaExamen;
 	}
+
 
 	public LocalDate getFechaExamen() {
 		return fechaExamen;

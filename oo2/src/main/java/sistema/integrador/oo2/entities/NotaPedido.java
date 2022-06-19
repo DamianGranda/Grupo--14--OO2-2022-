@@ -57,19 +57,28 @@ public  class NotaPedido implements Serializable{
 	
 	@Column(name="observaciones", nullable=false)
 	private String observaciones;
+	
+	@Column(name = "estado",nullable=true)
+	private boolean estado;
 
 	public NotaPedido() {}
 	
-	public NotaPedido(LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia,
-			String observaciones) {
+	
+	
+	public NotaPedido(int id, LocalDate fecha, char turno, Aula aula, int cantEstudiantes, Materia materia,
+			String observaciones, boolean estado) {
 		super();
+		this.id = id;
 		this.fecha = fecha;
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
+		this.estado = estado;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -126,6 +135,15 @@ public  class NotaPedido implements Serializable{
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+	
 	
 	
 }

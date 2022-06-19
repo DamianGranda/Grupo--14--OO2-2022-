@@ -11,8 +11,8 @@
 <body>
 	<div class="container mt-4">
 	<a th:href="@{/notaPedido/nuevo/final}" class="btn btn-primary">AGREGAR PEDIDO FINAL</a>
-	
-	<a th:href="@{/logout}" class="btn btn-primary">SALIR</a>
+	<a th:href="@{/notaPedido/nuevo/curso}" class="btn btn-primary">AGREGAR PEDIDO CURSO</a>
+	<a th:href="@{/logout}" class="btn btn-danger">SALIR</a>
 	<br/>
 	<br/>
 		<table class="table">
@@ -25,7 +25,8 @@
 					<th>CANTIDAD ESTUDIANTES</th>
 					<th>MATERIA</th>
 					<th>OBSERVACIONES</th>
-					
+					<th>TIPO</th>
+					<th>ESTADO</th>
 					<td>
 					
 					</td>
@@ -40,11 +41,11 @@
 								<td><span th:text="${pedido.cantEstudiantes}" /></td>
 								<td><span th:text="${pedido.materia.nombre}" /></td>
 								<td><span th:text="${pedido.observaciones}" /></td>
-								
-<!-- 								<td> -->
-<!-- 								<a th:href="@{/materia/editar/{id}(id=${materia.id})}" class="btn btn-info">Editar</a> -->
-<!-- 								<a th:href="@{/materia/eliminar/{id}(id=${materia.id})}" class="btn btn-danger">Eliminar</a> -->
-<!-- 								</td> -->
+								<td><span th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Curso)}" th:text="Curso" ></span>
+								<span th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Final)}" th:text="Final"></span></td>
+								<td><span th:if="${pedido.estado == false}" th:text="Pendiente" ></span><span th:if="${pedido.estado == true}" th:text="Autorizado" ></span></td>
+								<td><a th:if="${pedido.estado == false}" th:href="@{/notaPedido/estado/habilitar/{id}(id=${pedido.id})}" class="btn btn-info">Cambiar Estado</a>
+								<a th:if="${pedido.estado == true}" th:href="@{/notaPedido/estado/deshabilitar/{id}(id=${pedido.id})}" class="btn btn-info">Cambiar Estado</a></td>
 
 								</tr>
 							</tbody>

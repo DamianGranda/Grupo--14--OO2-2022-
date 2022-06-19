@@ -13,12 +13,12 @@
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-sm-6">
-			                    <form action="#" class="df-form" th:action="@{/notaPedido/final/crear}" th:object="${final}" method="post" autocomplete="off">
+			                    <form action="#" class="df-form" th:action="@{/notaPedido/curso/crear}" th:object="${curso}" method="post" autocomplete="off">
                         <div class="df-input-box">
              					
              					
-             				Fecha de examen:
-                            <input type="date" name="fecha" placeholder="fecha de examen" required  th:field="*{fechaExamen}">
+             				Codigo del Curso:
+                            <input type="text" name="curso" placeholder="Codigo Curso" required  th:field="*{codCurso}">
                             <label for="fecha"></label>
                             <hr>	
              					
