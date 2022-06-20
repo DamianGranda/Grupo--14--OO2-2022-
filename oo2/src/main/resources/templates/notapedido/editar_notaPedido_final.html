@@ -25,9 +25,10 @@
                             <label for="fecha"></label>
                             <hr>	
              					
-             					Fecha:
-                            <input type="date" name="fecha" placeholder="fecha de examen" required  th:field="*{fecha}">
-                            <label for="fecha"></label>
+             				<input type="hidden" th:field="*{fecha}" th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
+                               th:selected="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
+								class="form-control" />
+             					<label for="fecha"></label>
                             <!-- <hr>
                         	 Fecha:
                             <input type="date" name="number" placeholder="numero" required  th:field="*{fecha}">
@@ -77,8 +78,13 @@
                        <input type="hidden" th:field="*{id}">
                         <br>
                         <hr>
+<<<<<<< Updated upstream
                       <input type="submit" value="Guardar" class="btn btn-success">
                     	<a th:href="@{/notaPedido/admin/listar}" class="btn btn-light" >Atras</a>
+=======
+                       <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
+                    	<a th:href="@{/notaPedido/auditor/listar}" class="btn btn-light" >Atras</a>
+>>>>>>> Stashed changes
                     </form>
 			
 			</div>

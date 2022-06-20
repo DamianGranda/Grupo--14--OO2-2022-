@@ -38,6 +38,14 @@ public class MateriaControllerCrud {
 		return mAV;
 	}
 	
+	@GetMapping("/auditor/listar")
+	public ModelAndView listarAuditor() {
+		ModelAndView mAV = new ModelAndView("/materia/mostrarAuditor");
+		mAV.addObject("lstMaterias", service.listar());
+		mAV.addObject("materia", new Materia());
+
+		return mAV;
+	}
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate() { 
 		ModelAndView mAV = new ModelAndView("materia/form");

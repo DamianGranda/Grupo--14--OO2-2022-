@@ -10,6 +10,8 @@
 </head>
 <body>
 	<div class="container mt-4">
+	<a th:href="@{/notaPedido/nuevo/final}" class="btn btn-primary">AGREGAR PEDIDO FINAL</a>
+	<a th:href="@{/notaPedido/nuevo/curso}" class="btn btn-primary">AGREGAR PEDIDO CURSO</a>
 	<a th:href="@{/logout}"class="btn btn-dark">Cerrar Sesion</a>
 	<br/>
 	<br/>
@@ -42,17 +44,18 @@
 								<td><span th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Curso)}" th:text="Curso" ></span>
 								<span th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Final)}" th:text="Final"></span></td>
 								<td><span th:if="${pedido.estado == false}" th:text="Pendiente" ></span><span th:if="${pedido.estado == true}" th:text="Autorizado" ></span></td>
-								<td><a th:if="${pedido.estado == false}" th:href="@{/notaPedido/estado/habilitar/{id}(id=${pedido.id})}" class="btn btn-info">Cambiar Estado</a>
-								<a th:if="${pedido.estado == true}" th:href="@{/notaPedido/estado/deshabilitar/{id}(id=${pedido.id})}" class="btn btn-info">Cambiar Estado</a></td>
 								<td>
-									<a th:href="@{/notaPedido/eliminar/{id}(id=${pedido.id})}" class="btn btn-danger">Eliminar/Rechazar</a>
+									<a th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Curso)}" th:href="@{/notaPedido/editar/curso/{id}(id=${pedido.id})}" class="btn btn-info">Editar</a>
+									<a th:if="${pedido instanceof T(sistema.integrador.oo2.entities.Final)}" th:href="@{/notaPedido/editar/final/{id}(id=${pedido.id})}" class="btn btn-info">Editar</a>
+								
 								</td>
+								
 								</tr>
 							</tbody>
 		</table>
 		<br/>
 		<br/>
-		<a th:href="@{/admin/mostrar}" class="btn btn-primary">Volver al inicio</a> 
+		<a th:href="@{/auditor/mostrarAuditor}" class="btn btn-primary">Volver al inicio</a> 
 	</div>
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>

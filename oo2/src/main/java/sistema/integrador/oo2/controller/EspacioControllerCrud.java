@@ -44,6 +44,16 @@ public class EspacioControllerCrud {
 		//mAV.addObject("edificio", new Edificio());
 		return mAV;
 	}
+	
+	@GetMapping("/auditor/listar")
+	public ModelAndView listarAuditor() {
+
+		ModelAndView mAV = new ModelAndView("espacio/mostrarAuditor");
+		mAV.addObject("lstEspacios", espacioService.listar());
+		mAV.addObject("espacio", new Espacio());
+		//mAV.addObject("edificio", new Edificio());
+		return mAV;
+	}
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate(Edificio edificio) {
 		ModelAndView mAV = new ModelAndView("espacio/form");

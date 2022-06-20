@@ -17,22 +17,18 @@
 				<tr>
 					<th>ID</th>
 					<th>NOMBRE</th>
-					
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="edificio:${edificio}">
-					<td th:text="${edificio.id}"></td>
-					<td th:text="${edificio.nombre}"></td>
-					<td>
-					<a th:href="@{/aulaAuditor/{id}(id=${edificio.id})}" class="btn btn-info">Ver Aulas</a>
-					</td>
+
+				<tr th:each="departamento: ${lstDepartamentos}">
+					<td><span th:text="${departamento.id}" /></td>
+					<td><span th:text="${departamento.nombre}" /></td>
 				</tr>
 			</tbody>
 		</table>
 		<a th:href="@{/auditor/mostrarAuditor}" class="btn btn-primary">Volver al inicio</a> 
 	</div>
-	
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>
 	    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

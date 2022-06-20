@@ -45,6 +45,13 @@ public class NotaPedidoControllerCrud {
 		mAV.addObject("lstPedidos", notaPedidoService.listar());
 		return mAV;
 	}
+	
+	@GetMapping("/auditor/listar")
+	public ModelAndView listarAuditor() {
+		ModelAndView mAV = new ModelAndView("/notapedido/mostrarAuditor");
+		mAV.addObject("lstPedidos", notaPedidoService.listar());
+		return mAV;
+	}
 	// NOTA PEDIDO PARA CREAR UN FINAL:
 	@GetMapping("/nuevo/final")
 	public ModelAndView create_final() {
@@ -58,7 +65,7 @@ public class NotaPedidoControllerCrud {
 	public RedirectView create_sussces_final_a(@ModelAttribute("final") Final finall, RedirectAttributes redirectAttributes){
 		notaPedidoService.insertOrUpdate(finall);
 		redirectAttributes.addFlashAttribute("final_bien", true);
-		return new RedirectView("/notaPedido/admin/listar");
+		return new RedirectView("/notaPedido/auditor/listar");
 	}
 	//NOTA PEDIDO PARA CREAR UN CURSO
 		@GetMapping("/nuevo/curso")
@@ -73,7 +80,7 @@ public class NotaPedidoControllerCrud {
 		public RedirectView create_sussces_curso_a(@ModelAttribute("curso") Curso curso, RedirectAttributes redirectAttributes){
 			notaPedidoService.insertOrUpdate(curso);
 			redirectAttributes.addFlashAttribute("curso_bien", true);
-			return new RedirectView("/notaPedido/admin/listar");
+			return new RedirectView("/notaPedido/auditor/listar");
 		}
 		@GetMapping("/estado/deshabilitar/{id}")
 		public RedirectView deshabPerfil_admin(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
@@ -116,14 +123,14 @@ public class NotaPedidoControllerCrud {
 		public RedirectView cu_suss(@ModelAttribute("curso") Curso curso,RedirectAttributes redirectAttributes) {
 			notaPedidoService.insertOrUpdate(curso);
 			redirectAttributes.addFlashAttribute("curso_edit_bien", true);
-			return new RedirectView("/notaPedido/admin/listar");
+			return new RedirectView("/notaPedido/auditor/listar");
 		}
 		//lo uso para ver que si se edito bien, le hago un update
 		@PostMapping("/final/bien")
 		public RedirectView fi_suss(@ModelAttribute("final") Final finall,RedirectAttributes redirectAttributes) {
 			notaPedidoService.insertOrUpdate(finall);
 			redirectAttributes.addFlashAttribute("final_edit_bien", true);
-			return new RedirectView("/notaPedido/admin/listar");
+			return new RedirectView("/notaPedido/auditor/listar");
 		}
 
 

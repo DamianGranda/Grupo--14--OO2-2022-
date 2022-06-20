@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UNLa</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous" />
+</head>
+<body>
+	<div class="container mt-4">
+		
+		<a th:href="@{/logout}" class="btn btn-dark" >Cerrar Sesion</a><br>
+		<span>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+		<h1>AULA LABORATORIO:</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+				<tr>
+					<td>ID Aula</td>
+					<td>Numero</td>
+					<td>Edificio</td>
+					<td>cant-PC'S</td>
+					<td>cant-Sillas</td>
+
+				</tr>
+
+				</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lab: ${lstLaboratorios}">
+					<td><span th:text="${lab.id}" /></td>
+					<td><span th:text="${lab.numero}" /></td>
+					<td><span th:text="${lab.edificio.nombre}" /></td>
+					<td><span th:text="${lab.cantPc}" /></td>
+					<td><span th:text="${lab.cantSillas}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
+
+
+	<div class="container mt-4">
+		
+		<span>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+		<h1>AULA TRADICIONAL:</h1>
+		<table class="table">
+			<thead>
+				<tr>
+				<tr>
+					<td>ID Aula</td>
+					<td>Numero</td>
+					<td>Edificio</td>
+					<td>cant-Bancos</td>
+					<td>Pizarron</td>
+					<td>Proyector</td>
+				</tr>
+
+				</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="trad: ${lstTradicionales}">
+					<td><span th:text="${trad.id}" /></td>
+					<td><span th:text="${trad.numero}" /></td>
+					<td><span th:text="${trad.edificio.nombre}" /></td>
+					<td><span th:text="${trad.cantBancos}" /></td>
+					<td><span th:text="${trad.pizarron}" /></td>
+					<td><span th:text="${trad.tieneProyector}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<span>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+		<a th:href="@{/auditor/mostrarAuditor}" class="btn btn-primary">Volver al inicio</a>
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

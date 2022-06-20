@@ -36,6 +36,14 @@ public class CarreraController {
 		return mAV;
 	}
 	
+	@GetMapping("/auditor/listar") 
+	public ModelAndView listarAuditor() {
+		ModelAndView mAV = new ModelAndView("carrera/listaAuditor");
+		mAV.addObject("lstCarrera", carreraService.listar());
+		mAV.addObject("carrera", new Carrera());
+		return mAV;
+	}
+	
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate() { 
 		ModelAndView mAV = new ModelAndView("carrera/form");

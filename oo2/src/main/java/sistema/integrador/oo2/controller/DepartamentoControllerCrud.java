@@ -32,6 +32,14 @@ public class DepartamentoControllerCrud {
 			return mAV;
 		}
 		
+		@GetMapping("/auditor/listar")
+		public ModelAndView listarAuditor() {
+			ModelAndView mAV = new ModelAndView("departamento/listaAuditor");
+			mAV.addObject("lstDepartamentos", departamentoService.listar());
+			mAV.addObject("departamento", new Departamento());
+			return mAV;
+		}
+		
 		@GetMapping("/nuevo/agregar") 
 		public ModelAndView newCreate() { 
 			ModelAndView mAV = new ModelAndView("departamento/form");

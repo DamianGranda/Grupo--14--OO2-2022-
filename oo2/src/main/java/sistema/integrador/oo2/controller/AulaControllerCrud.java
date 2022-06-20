@@ -52,6 +52,13 @@ public class AulaControllerCrud {
 		mAV.addObject("lstTradicionales", serviceAula.getAllTradicional());
 		return mAV;
 	}
+    @GetMapping("/listar/aulaAuditor")
+	public ModelAndView listar_auditor() {
+		ModelAndView mAV = new ModelAndView("aula/listaAuditor");
+		mAV.addObject("lstLaboratorios", serviceAula.getAllLaboratorio());
+		mAV.addObject("lstTradicionales", serviceAula.getAllTradicional());
+		return mAV;
+	}
 	
 	@PostMapping("/listar/aula")
 	public String guardarEdificio(@ModelAttribute("aula") Aula aula) {
@@ -66,6 +73,24 @@ public class AulaControllerCrud {
 		
 		return "redirect:/listar/aula";
 	}
+	
+	//AUDITOR:
+	
+	@GetMapping("/traer/aulaAuditor/{id}")
+    public String traerAuditor(Aula aula, Model model) { 
+    	
+        if(serviceAula.obtenerAula(aula.getId()) instanceof Tradicional)
+        {
+        	Tradicional tradicional=(Tradicional) serviceAula.obtenerAula(aula.getId());
+            model.addAttribute("aula", tradicional);
+            return "aula/tradicionalAuditor";
+        }
+        
+        Laboratorio laboratorio=(Laboratorio) serviceAula.obtenerAula(aula.getId());
+        model.addAttribute("aula", laboratorio);
+        return "aula/laboratorioAuditor";
+    }
+    
 	
 	
 }

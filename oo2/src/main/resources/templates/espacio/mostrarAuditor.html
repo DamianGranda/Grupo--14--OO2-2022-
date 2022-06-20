@@ -11,28 +11,38 @@
 <body>
 	<div class="container mt-4">
 	<a th:href="@{/logout}"class="btn btn-dark">Cerrar Sesion</a>
-		<br> <br>
+	<br>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>NOMBRE</th>
+					<th>FECHA</th>
+				    <th>TURNO</th>
+					<th>LIBRE</th>
+					<th>EDIFICIO</th>
+					<th>NUMERO DE AULA</th>
+					<td>
 					
+					</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="edificio:${edificio}">
-					<td th:text="${edificio.id}"></td>
-					<td th:text="${edificio.nombre}"></td>
-					<td>
-					<a th:href="@{/aulaAuditor/{id}(id=${edificio.id})}" class="btn btn-info">Ver Aulas</a>
-					</td>
-				</tr>
-			</tbody>
+								<tr th:each="espacio: ${lstEspacios}">
+								<td><span th:text="${espacio.fecha}" /></td>
+								<td><span th:text="${espacio.turno}" /></td>
+								<td><span th:text="${espacio.libre}" /></td>
+								<td><span th:text="${espacio.aula.edificio.nombre}" /></td>
+								<td><span th:text="${espacio.aula.numero}" /></td>
+								
+								</tr>
+							</tbody>
 		</table>
+		<div class="alert warning-alert" th:if="${ya_existe}">
+  				<h3 class="letraletra">El espacio ya se encuentra asignado, intenté con otro!</h3>
+					</div>
+		<br/>
+		<br/>
 		<a th:href="@{/auditor/mostrarAuditor}" class="btn btn-primary">Volver al inicio</a> 
 	</div>
-	
 	<!-- Bootstrap core JavaScript -->
 	    <script src="/vendor/jquery/jquery.min.js"></script>
 	    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
