@@ -1274,3 +1274,56 @@ Caused by: java.lang.Exception: Resource '/Grupo-23-002-2022/pom.xml' does not e
 2022-06-18 20:34:23,926 [Worker-117: Launching oo2 - Oo2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-06-18 20:34:23,926 [Worker-117: Launching oo2 - Oo2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-06-18 20:34:23,926 [Worker-117: Launching oo2 - Oo2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 17:26:16,858 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-06-20 17:32:04,748 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: sistema.integrador:oo2:0.0.1-SNAPSHOT @ C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\pom.xml.
+2022-06-20 17:32:45,325 [Worker-2: Importing Maven projects] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact bouncycastle:bctsp-jdk14:jar:138 has been relocated to org.bouncycastle:bctsp-jdk14:jar:1.38
+2022-06-20 17:33:08,978 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /oo2/src/main/java
+2022-06-20 17:33:08,979 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /oo2/src/main/resources
+2022-06-20 17:33:08,991 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /oo2/src/main/resources
+2022-06-20 17:33:09,084 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /oo2/src/test/java
+2022-06-20 17:33:32,590 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 126 sec
+2022-06-20 17:34:06,092 [Worker-12: Building] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact bouncycastle:bctsp-jdk14:jar:138 has been relocated to org.bouncycastle:bctsp-jdk14:jar:1.38
+2022-06-20 17:34:06,300 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 17:34:06,300 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 17:34:06,388 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 17:34:06,703 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 17:34:30,188 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 17:34:30,188 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 17:34:30,188 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 17:37:06,131 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 17:37:06,131 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 17:37:06,379 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 17:37:06,555 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 17:37:13,619 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 17:37:13,620 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 17:37:13,620 [Worker-5: Launching GeneradorContraseña] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 17:40:12,384 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-06-20 17:50:16,418 [Worker-4: Check for devtools] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact bouncycastle:bctsp-jdk14:jar:138 has been relocated to org.bouncycastle:bctsp-jdk14:jar:1.38
+2022-06-20 18:37:13,375 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:13,376 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:13,458 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 18:37:15,425 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 18:37:15,790 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:15,790 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:15,791 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 18:37:35,207 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:35,208 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:35,381 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 18:37:44,534 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 18:37:44,572 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:44,572 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:44,573 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 18:37:49,770 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:49,770 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:49,783 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 18:37:50,952 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 18:37:51,017 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:51,017 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:51,017 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
+2022-06-20 18:37:58,833 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:58,834 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:58,846 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-06-20 18:37:58,932 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 80 resources
+2022-06-20 18:37:58,966 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-06-20 18:37:58,966 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-06-20 18:37:58,966 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\admin\Desktop\UNLA\POO2\Grupo--14--OO2-2022-\oo2\src\test\resources
