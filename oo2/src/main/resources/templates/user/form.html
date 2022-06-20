@@ -56,24 +56,28 @@
 								class="form-control" />
 						</div>
 						<div class="form-group">
-							<label>ENABLED</label> <input th:field="*{enabled}" type="checkbox"
+							<input type="hidden" th:field="*{enabled}" th:value="true"
+                               th:selected="true"
 								class="form-control" />
+							<label for="enabled"></label> 
 						</div>
 						<div class="form-group">
+						
 							<label> ROL </label>		
 							<select class="form-select center" id="role" th:field="*{role}" name="role">	
 								<option th:each="role : ${listRole}"
 									th:value="${(role.id)}" 
 									th:text="${role.role}">						
-								</option>
+								</option>	
+								</select>
 						</div>
+						
 					</div>
-					<div class="card-footer">
-						<input type="submit" value="Guardar" class="btn btn-success">
-						<a th:href="@{/admin/listar}" class="btn btn-light" >Atras</a>
-					</div>
+					
 				</div>
 				
+				<input type="submit" value="Guardar" class="btn btn-success">
+					<a th:href="@{/admin/listar}" class="btn btn-light" >Atras</a>
 			</form>
 		</div>
 	</div>
