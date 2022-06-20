@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import sistema.integrador.oo2.entities.Edificio;
 import sistema.integrador.oo2.entities.Espacio;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IAulaService;
 import sistema.integrador.oo2.services.IEdificioService;
 import sistema.integrador.oo2.services.IEspacioService;
@@ -38,7 +39,7 @@ public class EspacioControllerCrud {
 	@GetMapping("/admin/listar")
 	public ModelAndView listar() {
 
-		ModelAndView mAV = new ModelAndView("espacio/mostrar");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESPACIO_MOSTRAR);
 		mAV.addObject("lstEspacios", espacioService.listar());
 		mAV.addObject("espacio", new Espacio());
 		//mAV.addObject("edificio", new Edificio());
@@ -48,7 +49,7 @@ public class EspacioControllerCrud {
 	@GetMapping("/auditor/listar")
 	public ModelAndView listarAuditor() {
 
-		ModelAndView mAV = new ModelAndView("espacio/mostrarAuditor");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESPACIO_MOSTRARAUDITOR);
 		mAV.addObject("lstEspacios", espacioService.listar());
 		mAV.addObject("espacio", new Espacio());
 		//mAV.addObject("edificio", new Edificio());
@@ -56,7 +57,7 @@ public class EspacioControllerCrud {
 	}
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate(Edificio edificio) {
-		ModelAndView mAV = new ModelAndView("espacio/form");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESPACIO_FORM);
 		mAV.addObject("lstAulas", aulaService.listar());
 		mAV.addObject("espacio", new Espacio());
 		mAV.addObject("lstEdificio",edificioService.listar());
@@ -78,7 +79,7 @@ public class EspacioControllerCrud {
 	
 	@GetMapping("/editar/{id}") 
 	public ModelAndView editar_e(@PathVariable("id") int id) {
-		ModelAndView mAV = new ModelAndView("espacio/editar_espacio");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESPACIO_EDITAR);
 		mAV.addObject("espacio", espacioService.findById(id));
 		mAV.addObject("lstAulas", aulaService.listar());
 		return mAV;

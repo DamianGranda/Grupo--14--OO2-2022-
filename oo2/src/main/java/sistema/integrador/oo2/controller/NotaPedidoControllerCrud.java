@@ -16,6 +16,7 @@ import sistema.integrador.oo2.entities.Curso;
 import sistema.integrador.oo2.entities.Final;
 import sistema.integrador.oo2.entities.Materia;
 import sistema.integrador.oo2.entities.NotaPedido;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IAulaService;
 import sistema.integrador.oo2.services.IMateriaService;
 import sistema.integrador.oo2.services.INotaPedidoService;
@@ -41,21 +42,21 @@ public class NotaPedidoControllerCrud {
 	private IFinal*/
 	@GetMapping("/admin/listar")
 	public ModelAndView listar() {
-		ModelAndView mAV = new ModelAndView("/notapedido/mostrar");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTAPEDIDO_MOSTRAR);
 		mAV.addObject("lstPedidos", notaPedidoService.listar());
 		return mAV;
 	}
 	
 	@GetMapping("/auditor/listar")
 	public ModelAndView listarAuditor() {
-		ModelAndView mAV = new ModelAndView("/notapedido/mostrarAuditor");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTAPEDIDO_MOSTRARAUDITOR);
 		mAV.addObject("lstPedidos", notaPedidoService.listar());
 		return mAV;
 	}
 	// NOTA PEDIDO PARA CREAR UN FINAL:
 	@GetMapping("/nuevo/final")
 	public ModelAndView create_final() {
-		ModelAndView mAV =new ModelAndView("notapedido/crearFinal");
+		ModelAndView mAV =new ModelAndView(ViewRouteHelper.NOTAPEDIDO_FINAL);
 		mAV.addObject("final", new Final());
 		mAV.addObject("lstAulas", aulaService.listar());
 		mAV.addObject("lstMaterias", materiaService.listar());
@@ -70,7 +71,7 @@ public class NotaPedidoControllerCrud {
 	//NOTA PEDIDO PARA CREAR UN CURSO
 		@GetMapping("/nuevo/curso")
 		public ModelAndView create_curso() {
-			ModelAndView mAV =new ModelAndView("notapedido/crearCurso");
+			ModelAndView mAV =new ModelAndView(ViewRouteHelper.NOTAPEDIDO_CURSO);
 			mAV.addObject("curso", new Curso());
 			mAV.addObject("lstAulas", aulaService.listar());
 			mAV.addObject("lstMaterias", materiaService.listar());
@@ -103,7 +104,7 @@ public class NotaPedidoControllerCrud {
 		//selecciono el curso con su id y lo edito
 		@GetMapping("/editar/curso/{id}")
 		public ModelAndView editar_cu(@PathVariable("id") int id) {
-			ModelAndView mAV = new ModelAndView("notapedido/editar_notaPedido_curso");
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTAPEDIDO_EDITARCURSO);
 			mAV.addObject("lstAulas", aulaService.listar()); 
 			mAV.addObject("lstMaterias", materiaService.listar()); 
 			mAV.addObject("curso", notaPedidoService.findById(id));
@@ -112,7 +113,7 @@ public class NotaPedidoControllerCrud {
 		//selecciono el final con su id y lo edito
 		@GetMapping("/editar/final/{id}")
 		public ModelAndView editar_fi(@PathVariable("id") int id) {
-			ModelAndView mAV = new ModelAndView("notapedido/editar_notaPedido_final");//html editar final
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTAPEDIDO_EDITARFINAL);//html editar final
 			mAV.addObject("lstAulas", aulaService.listar()); 
 			mAV.addObject("lstMaterias", materiaService.listar()); 
 			mAV.addObject("final", notaPedidoService.findById(id));

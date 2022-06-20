@@ -13,6 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import sistema.integrador.oo2.entities.Carrera;
 import sistema.integrador.oo2.entities.Materia;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.ICarreraService;
 import sistema.integrador.oo2.services.IMateriaService;
 import sistema.integrador.oo2.services.implementation.CarreraServiceImpl;
@@ -31,7 +32,7 @@ public class MateriaControllerCrud {
 	
 	@GetMapping("/admin/listar")
 	public ModelAndView listar() {
-		ModelAndView mAV = new ModelAndView("/materia/mostrar");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.MATERIA_MOSTRAR);
 		mAV.addObject("lstMaterias", service.listar());
 		mAV.addObject("materia", new Materia());
 
@@ -40,7 +41,7 @@ public class MateriaControllerCrud {
 	
 	@GetMapping("/auditor/listar")
 	public ModelAndView listarAuditor() {
-		ModelAndView mAV = new ModelAndView("/materia/mostrarAuditor");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.MATERIA_MOSTRARAUDITOR);
 		mAV.addObject("lstMaterias", service.listar());
 		mAV.addObject("materia", new Materia());
 
@@ -48,7 +49,7 @@ public class MateriaControllerCrud {
 	}
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate() { 
-		ModelAndView mAV = new ModelAndView("materia/form");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.MATERIA_FORM);
 		mAV.addObject("lstMateria", service.listar());
 		mAV.addObject("lstCarrera", carreraService.listar());
 		mAV.addObject("materia", new Materia());
@@ -64,7 +65,7 @@ public class MateriaControllerCrud {
 	
 	@GetMapping("/editar/{id}") 
 	public ModelAndView editar_e(@PathVariable("id") int id) {
-		ModelAndView mAV = new ModelAndView("materia/editar_materia");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.MATERIA_EDITAR);
 		mAV.addObject("materia", service.findById(id));
 		mAV.addObject("lstCarreras", carreraService.listar());
 		return mAV;

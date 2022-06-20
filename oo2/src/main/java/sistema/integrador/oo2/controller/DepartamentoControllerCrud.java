@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import sistema.integrador.oo2.entities.Departamento;
+import sistema.integrador.oo2.helpers.ViewRouteHelper;
 import sistema.integrador.oo2.services.IDepartamentoService;
 
 
@@ -26,7 +27,7 @@ public class DepartamentoControllerCrud {
 		
 		@GetMapping("/admin/listar")
 		public ModelAndView listar() {
-			ModelAndView mAV = new ModelAndView("departamento/lista");
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.DEPARTAMENTO_LISTA);
 			mAV.addObject("lstDepartamentos", departamentoService.listar());
 			mAV.addObject("departamento", new Departamento());
 			return mAV;
@@ -34,7 +35,7 @@ public class DepartamentoControllerCrud {
 		
 		@GetMapping("/auditor/listar")
 		public ModelAndView listarAuditor() {
-			ModelAndView mAV = new ModelAndView("departamento/listaAuditor");
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.DEPARTAMENTO_LISTAAUDITOR);
 			mAV.addObject("lstDepartamentos", departamentoService.listar());
 			mAV.addObject("departamento", new Departamento());
 			return mAV;
@@ -42,7 +43,7 @@ public class DepartamentoControllerCrud {
 		
 		@GetMapping("/nuevo/agregar") 
 		public ModelAndView newCreate() { 
-			ModelAndView mAV = new ModelAndView("departamento/form");
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.DEPARTAMENTO_FORM);
 			mAV.addObject("lstDepartamentos", departamentoService.listar());
 			mAV.addObject("departamento", new Departamento());
 			return mAV;
@@ -57,7 +58,7 @@ public class DepartamentoControllerCrud {
 		
 		@GetMapping("/editar/{id}") // GET DE EDITAR
 		public ModelAndView editar_d(@PathVariable("id") int id) {
-			ModelAndView mAV = new ModelAndView("departamento/editar");
+			ModelAndView mAV = new ModelAndView(ViewRouteHelper.DEPARTAMENTO_EDITAR);
 			mAV.addObject("departamento", departamentoService.findById(id));
 			mAV.addObject("lstDepartamento", departamentoService.listar());//ATENCION!
 			return mAV;

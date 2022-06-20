@@ -30,7 +30,7 @@ public class CarreraController {
 	
 	@GetMapping("/admin/listar") 
 	public ModelAndView listar() {
-		ModelAndView mAV = new ModelAndView("carrera/lista");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRERA_LISTA);
 		mAV.addObject("lstCarrera", carreraService.listar());
 		mAV.addObject("carrera", new Carrera());
 		return mAV;
@@ -38,7 +38,7 @@ public class CarreraController {
 	
 	@GetMapping("/auditor/listar") 
 	public ModelAndView listarAuditor() {
-		ModelAndView mAV = new ModelAndView("carrera/listaAuditor");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRERA_LISTAAUDITOR);
 		mAV.addObject("lstCarrera", carreraService.listar());
 		mAV.addObject("carrera", new Carrera());
 		return mAV;
@@ -46,7 +46,7 @@ public class CarreraController {
 	
 	@GetMapping("/nuevo/agregar") 
 	public ModelAndView newCreate() { 
-		ModelAndView mAV = new ModelAndView("carrera/form");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRERA_FORM);
 		mAV.addObject("lstCarrera", carreraService.listar());
 		mAV.addObject("lstDepartamento", departamentoService.listar());
 		mAV.addObject("carrera", new Carrera());
@@ -61,7 +61,7 @@ public class CarreraController {
 	
 	@GetMapping("/editar/{id}") 
 	public ModelAndView editar_e(@PathVariable("id") int id) {
-		ModelAndView mAV = new ModelAndView("carrera/editar");
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.CARRERA_EDITAR);
 		mAV.addObject("carrera", carreraService.findById(id));
 		mAV.addObject("lstDepartamento", departamentoService.listar());
 		return mAV;
