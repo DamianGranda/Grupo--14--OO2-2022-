@@ -33,13 +33,13 @@
     
     <span th:fragment="header_usuario" class="navbar-nav ml-auto">
 		<li>
-            <a class="nav-link" href="/">Home</a>
+           
 		</li>
     </span>
     
     <span th:fragment="header_common" class="navbar-nav ml-auto">
 		<li th:if="${#httpServletRequest.requestURI != '/admin/' && #httpServletRequest.requestURI != '/auditor/'}">
-            <a class="nav-link" href="/">Home</a>
+           
 		</li>
 		<li class="nav-item ">
 			<a class="nav-link" th:href="@{/logout}">Cerrar sesion</a>

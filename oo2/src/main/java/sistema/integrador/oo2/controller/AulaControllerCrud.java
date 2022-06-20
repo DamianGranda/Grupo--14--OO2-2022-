@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.var;
 import sistema.integrador.oo2.entities.Aula;
@@ -45,10 +45,12 @@ public class AulaControllerCrud {
         return ViewRouteHelper.AULA_LABORATORIO;
     }
     
-	@GetMapping("/listar/aula")
-	public String listarAulas(Model model) {
-		model.addAttribute("aula", serviceAula.listar());
-		return ViewRouteHelper.AULA_LISTA;
+    @GetMapping("/listar/aula")
+	public ModelAndView listar_admin() {
+		ModelAndView mAV = new ModelAndView("aula/lista");
+		mAV.addObject("lstLaboratorios", serviceAula.getAllLaboratorio());
+		mAV.addObject("lstTradicionales", serviceAula.getAllTradicional());
+		return mAV;
 	}
 	
 	@PostMapping("/listar/aula")
@@ -64,5 +66,6 @@ public class AulaControllerCrud {
 		
 		return "redirect:/listar/aula";
 	}
+	
 	
 }

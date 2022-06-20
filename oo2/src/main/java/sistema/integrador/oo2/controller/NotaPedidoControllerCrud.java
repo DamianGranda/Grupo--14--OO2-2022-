@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import sistema.integrador.oo2.entities.Curso;
 import sistema.integrador.oo2.entities.Final;
+import sistema.integrador.oo2.entities.Materia;
 import sistema.integrador.oo2.entities.NotaPedido;
 import sistema.integrador.oo2.services.IAulaService;
 import sistema.integrador.oo2.services.IMateriaService;
@@ -92,4 +93,44 @@ public class NotaPedidoControllerCrud {
 			return RV;
 		}
 		
+		//selecciono el curso con su id y lo edito
+		@GetMapping("/editar/curso/{id}")
+		public ModelAndView editar_cu(@PathVariable("id") int id) {
+			ModelAndView mAV = new ModelAndView("notapedido/editar_notaPedido_curso");
+			mAV.addObject("lstAulas", aulaService.listar()); 
+			mAV.addObject("lstMaterias", materiaService.listar()); 
+			mAV.addObject("curso", notaPedidoService.findById(id));
+			return mAV;
+		}
+		//selecciono el final con su id y lo edito
+		@GetMapping("/editar/final/{id}")
+		public ModelAndView editar_fi(@PathVariable("id") int id) {
+			ModelAndView mAV = new ModelAndView("notapedido/editar_notaPedido_final");//html editar final
+			mAV.addObject("lstAulas", aulaService.listar()); 
+			mAV.addObject("lstMaterias", materiaService.listar()); 
+			mAV.addObject("final", notaPedidoService.findById(id));
+			return mAV;
+		}
+		//lo uso para ver que si se edito bien, le hago un update
+		@PostMapping("/curso/bien")
+		public RedirectView cu_suss(@ModelAttribute("curso") Curso curso,RedirectAttributes redirectAttributes) {
+			notaPedidoService.insertOrUpdate(curso);
+			redirectAttributes.addFlashAttribute("curso_edit_bien", true);
+			return new RedirectView("/notaPedido/admin/listar");
+		}
+		//lo uso para ver que si se edito bien, le hago un update
+		@PostMapping("/final/bien")
+		public RedirectView fi_suss(@ModelAttribute("final") Final finall,RedirectAttributes redirectAttributes) {
+			notaPedidoService.insertOrUpdate(finall);
+			redirectAttributes.addFlashAttribute("final_edit_bien", true);
+			return new RedirectView("/notaPedido/admin/listar");
+		}
+
+
+		@GetMapping("/eliminar/{id}")
+		public RedirectView eliminar(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+			notaPedidoService.remove(id);
+			redirectAttributes.addFlashAttribute("pedido_eliminado", true);
+			return new RedirectView("/notaPedido/admin/listar");
+		}
 }

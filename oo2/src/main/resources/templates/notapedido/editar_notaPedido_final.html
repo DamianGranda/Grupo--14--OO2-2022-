@@ -13,18 +13,19 @@
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-sm-6">
-			                    <form action="#" class="df-form" th:action="@{/notaPedido/final/crear}" th:object="${final}" method="post" autocomplete="off">
+			                    <form action="#" class="df-form" th:action="@{/notaPedido/final/bien}" th:object="${final}" method="post" autocomplete="off">
                         <div class="df-input-box">
              					
-             					
+             				Editar Nota Pedido
+             				
              				Fecha de examen:
                             <input type="date" name="fecha" placeholder="fecha de examen" required  th:field="*{fechaExamen}">
                             <label for="fecha"></label>
                             <hr>	
-             					<input type="hidden" th:field="*{fecha}" th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
-                               th:selected="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"
-								class="form-control" />
-             					<label for="fecha"></label>
+             					
+             					Fecha:
+                            <input type="date" name="fecha" placeholder="fecha de examen" required  th:field="*{fecha}">
+                            <label for="fecha"></label>
                             <!-- <hr>
                         	 Fecha:
                             <input type="date" name="number" placeholder="numero" required  th:field="*{fecha}">
@@ -42,7 +43,7 @@
                                 <select th:field="*{aula}" class="df-form">
                                     <option th:each="a : ${lstAulas}"
                                       th:value="${a.id}" 
-                                      th:text=" ${a.edificio.nombre} + '-' + ${a.numero} "/>
+                                      th:text="${a.numero}"/>
                               </select>
                             </p>
                             <hr>
@@ -70,11 +71,11 @@
                                th:selected="false"
 								class="form-control" />
                         </div>
-                       <!--<input type="hidden" th:field="*{id}"-->
+                       <input type="hidden" th:field="*{id}">
                         <br>
                         <hr>
                        <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
-                       <a th:href="@{/notaPedido/admin/listar}" class="btn btn-light" >Atras</a>
+                    	<a th:href="@{/notaPedido/admin/listar}" class="btn btn-light" >Atras</a>
                     </form>
 			
 			</div>

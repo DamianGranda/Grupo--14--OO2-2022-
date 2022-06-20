@@ -53,11 +53,15 @@
 						</div>
 						
 					</div>
+					<input type="hidden" th:field="*{id}">
+                        <hr>
+                        <br>
 					<div class="card-footer">
 						<input type="submit" value="Guardar" class="btn btn-success">
 					</div>
 				</div>
 			</form>
+			<a th:href="@{/espacio/admin/listar}" class="btn btn-light" >Atras</a>
 		</div>
 	</div>
 	<!-- Bootstrap core JavaScript -->

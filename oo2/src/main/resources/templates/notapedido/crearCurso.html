@@ -38,11 +38,11 @@
 							</select>
                             <hr>
         				<p>
-                                Aula:
+                                Edificio-Aula:
                                 <select th:field="*{aula}" class="df-form">
                                     <option th:each="a : ${lstAulas}"
                                       th:value="${a.id}" 
-                                      th:text="${a.numero}"/>
+                                      th:text=" ${a.edificio.nombre} + '-' + ${a.numero} "/>
                               </select>
                             </p>
                             <hr>
@@ -74,6 +74,7 @@
                         <br>
                         <hr>
                        <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
+                    	<a th:href="@{/notaPedido/admin/listar}" class="btn btn-light" >Atras</a>
                     </form>
 			
 			</div>

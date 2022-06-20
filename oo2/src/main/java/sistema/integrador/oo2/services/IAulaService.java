@@ -2,7 +2,10 @@ package sistema.integrador.oo2.services;
 
 import java.util.List;
 
+
 import sistema.integrador.oo2.entities.Aula;
+import sistema.integrador.oo2.entities.Laboratorio;
+import sistema.integrador.oo2.entities.Tradicional;
 
 
 
@@ -14,6 +17,8 @@ public interface IAulaService {
 	public Aula actualizarAula(Aula aula);
 	public void eliminarAula(int id);
 	public List<Aula> buscarPorEdificio_ID(int id);// Trae la lista de aulas a partir del edificio
-
+	public List<Tradicional> getAllTradicional();
+	public List<Laboratorio> getAllLaboratorio();
+	
 	
 }

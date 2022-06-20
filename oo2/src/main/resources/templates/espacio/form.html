@@ -25,11 +25,7 @@
 								required th:field="*{fecha}" not-null="true"> <label
 								for="fecha"></label> 
 						</div>
-							<div class="form-group">
-							Libre: <input type="checkbox" name="libre"
-								placeholder="libre" th:field="*{libre}" not-null="true">
-							<label for="libre"></label> 
-						</div>
+							
 							<div class="form-group">
 							Turno: <select th:field="*{turno}"
 								required>
@@ -37,6 +33,13 @@
 								<option value="T">TARDE</option>
 								<option value="N">NOCHE</option>
 							</select>
+						</div>
+						<div class="form-group">
+							
+							<input type="hidden" th:field="*{libre}" th:value="false"
+                               th:selected="false"
+								class="form-control" />
+							<label for="libre"></label> 
 						</div>
 						
 							<div class="form-group">
@@ -56,7 +59,9 @@
 					</div>
 					<br>
 					<input type="submit" value="Guardar" class="btn btn-success">
+					<a th:href="@{/espacio/admin/listar}" class="btn btn-light" >Atras</a>
 				</form>
+				
 			</div>
 		</div>
 	</div>

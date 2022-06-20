@@ -39,7 +39,7 @@ public  class NotaPedido implements Serializable{
 	
 	@Column(name="fecha", nullable=false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fecha;
+    private LocalDate fecha=LocalDate.now();
 	
 	@Column(name="turno", nullable=false)
 	private char turno;

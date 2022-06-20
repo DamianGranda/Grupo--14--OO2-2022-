@@ -14,6 +14,7 @@
 				<div class="col-md-12">
 					<div class="card">	
 						<div class="card-header center py-3">
+						<h1>Aula Laboratorio</h1>
 							<h4 class="center"><i class="fa-solid fa-chalkboard-user fa-lg me-1"></i></h4>													
 						</div>		
 						
@@ -36,10 +37,14 @@
 																												
 								</tr>																	
 							</tbody>
-						</table>					
+						</table>
+											
 					</div>
 				</div>
 			</div>
+			<br>
+			<a th:href="@{/aula/{id}(id=${aula.edificio.id})}" class="btn btn-light" >Atras</a>
 		</div>
+		
 	</section>
 </html>
