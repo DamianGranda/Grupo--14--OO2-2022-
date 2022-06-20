@@ -1,29 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>UNLa</title>
-		<link
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-	</head>
-	<body>
-	    <!-- Page Content -->
-	    <div class="container">
-	      <div class="jumbotron">
-	        <h1 class="display-5">Login</h1>
-	        <form th:action="@{/loginprocess}" method="post">
-		      	<input type="text" name="username" id="username" placeholder="Username" />
-		      	<input type="password" name="password" id="password" placeholder="Password" />
-		      	<input type="submit" />
-	      	</form>
-	      	<div th:if="${error != null}" class="alert alert-danger">
+  <head>
+    <meta charset="utf-8" />
+    <title>UNLa</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background: #9a2a2a;
+      }
+      .bg {
+        background-image: url("https://www.rassegna.com.ar/wp-content/uploads/2017/03/rassegna_butacas-auditorios-unla-2.jpg");
+        background-position: center center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container w-75 mt-5 rounded shadow">
+      <div class="row align-items-stretch">
+        <!--IMAGEN DE FONDO-->
+        <div
+          class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"
+        ></div>
+
+        <!-- LOGIN-->
+        <div class="col bg-white p-5 rounded-end">
+          <div class="text-end">
+            <img
+              src="https://yt3.ggpht.com/ytc/AKedOLRXzQVzc-EPlblyzNvedx3tebwIrfcge1_9kXEh=s900-c-k-c0x00ffffff-no-rj"
+              width="48"
+              alt="logo"
+            />
+          </div>
+          <h2 class="fw-bold text-center pt-5 mb-5">Bienvenido</h2>
+
+          <form th:action="@{/loginprocess}" method="post">
+            <div class="mb-4">
+              <label for="username" class="form-label">Usuario</label>
+              <input
+                type="text"
+                class="form-control"
+                autocomplete="off"
+                name="username"
+		id="username"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                autocomplete="off"
+                name="password"
+		id="password"
+              />
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                Iniciar Sesión
+              </button>
+            </div>
+            <br/>
+		<div th:if="${error != null}" class="alert alert-danger">
 		    	Invalid username or password.
 		    </div>
-	      </div>
-	    </div>
-	
-	</body>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

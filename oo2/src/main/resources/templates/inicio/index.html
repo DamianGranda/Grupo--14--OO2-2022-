@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>LOG IN</title>
-</head>
-<body>
-	<!--  <div th:replace="~{/parcial/Header :: header}"></div>-->
-      <!-- Page Content -->
-      <div class="container">
-  		<h1>Bienvenido</h1>
-        <span th:if="${userRole != 'ROLE_ANONYMOUS'}">
-           <a class="btn btn-outline-info btn-lg" th:href="@{/login}">Iniciar sesion</a>      
-        </span>
-        <br />
-       	<span th:if="${userRole != 'ROLE_ANONYMOUS'}">
-        </span>
-        <hr>
-        <br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>UNLa</title>
+    <style>
+      body {
+        background: rgb(117, 33, 33);
+        background: linear-gradient(
+          90deg,
+          rgba(117, 33, 33, 1) 0%,
+          rgba(249, 85, 85, 1) 68%
+        );
+      }
+      .txt-landing {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid vh-100">
+      <div class="row align-items-center pt-3">
+        <div class="col-md-6 p-5 text-center">
+          <h1 class="display-4 font-weight-normal txt-landing">Bienvenido</h1>
+          <br />
+          <h3 class="font-weight-light txt-landing" style="line-height: 40px">
+            Este es el proyecto del Grupo 14 para
+            <span style="font-weight: bold"> Orientación a Objetos 2 </span>
+          </h3>
+          <br />
+          <a class="btn btn-lg btn-outline-light pr-5 pl-5 pt-2 pb-2" th:href="@{/login}">
+            Ir al login
+          </a>
+        </div>
+        <div class="col-md-6 p-5">
+          <img
+            class="w-100 shadow-lg"
+            src="https://media.istockphoto.com/vectors/after-covid-school-lesson-flat-color-vector-illustration-vector-id1336476341?b=1&k=20&m=1336476341&s=612x612&w=0&h=pYxnWyobUi4xWiuiTc0gyRPZwCGH8r-O1lid1I9u2fQ="
+            alt="img-clase"
+          />
+        </div>
       </div>
-      <!-- /.container -->
-
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+    </div>
+    <footer>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+      ></script>
+    </footer>
+  </body>
 </html>
