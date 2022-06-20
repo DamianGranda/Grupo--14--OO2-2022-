@@ -14,10 +14,12 @@
 		<div class="row">
 			<div class="col-sm-6">
 			                    <form action="#" class="df-form" th:action="@{/notaPedido/curso/bien}" th:object="${curso}" method="post" autocomplete="off">
-                        <div class="df-input-box">
+                        <div class="card">
              					
-             				Editar Nota Pedido
-             				
+             			<div class="card-header">
+						<h3>Editar Nota Pedido Curso</h3>
+					</div>
+             				<div class="card-body">
              				Codigo del Curso:
                             <input type="text" name="curso" placeholder="Codigo Curso" required  th:field="*{codCurso}">
                             <label for="fecha"></label>
@@ -33,9 +35,9 @@
                             <hr> -->
                   			turno:
                              <select  th:field="*{turno}" required >
-									<option value="T">MAÑANA</option>
-								    <option value="N">TARDE</option>
-								    <option value="M">NOCHE</option>
+									<option value="M">MAÑANA</option>
+								    <option value="T">TARDE</option>
+								    <option value="N">NOCHE</option>
 							</select>
                             <hr>
         				<p>
@@ -71,11 +73,12 @@
                                th:selected="false"
 								class="form-control" />
                         </div>
+                        </div>
                         <!-- Lo tengo que poner para que cuando edito no me cree uno nuevo -->
                        <input type="hidden" th:field="*{id}">
                         <hr>
                         <br>
-                       <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
+                      <input type="submit" value="Guardar" class="btn btn-success">
                     	<a th:href="@{/notaPedido/admin/listar}" class="btn btn-light" >Atras</a>
                     </form>
 			
